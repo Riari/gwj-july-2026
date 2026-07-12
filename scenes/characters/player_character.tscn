@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://df0rjap034euw"]
+
+[ext_resource type="PackedScene" uid="uid://iwhiqytys7vs" path="res://scenes/characters/character_base.tscn" id="1_pihnd"]
+[ext_resource type="Script" uid="uid://cs28s7k3ecj8a" path="res://scripts/player_character.gd" id="2_oiidq"]
+[ext_resource type="AudioStream" uid="uid://bi4v6cjk0syh8" path="res://assets/audio/sfx/jump-1.ogg" id="3_h6v2g"]
+
+[node name="PlayerCharacter" unique_id=109084431 instance=ExtResource("1_pihnd")]
+script = ExtResource("2_oiidq")
+move_speed = 100.0
+jump_speed = -400.0
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="." index="2" unique_id=1857376989]
+unique_name_in_owner = true
+stream = ExtResource("3_h6v2g")

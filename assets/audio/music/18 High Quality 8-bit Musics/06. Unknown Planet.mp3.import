@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqqxf2vbffil"
+path="res://.godot/imported/06. Unknown Planet.mp3-f2b62fc3e1721bed2d58a8005af9dd9c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/18 High Quality 8-bit Musics/06. Unknown Planet.mp3"
+dest_files=["res://.godot/imported/06. Unknown Planet.mp3-f2b62fc3e1721bed2d58a8005af9dd9c.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

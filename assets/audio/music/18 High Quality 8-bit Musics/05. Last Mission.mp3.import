@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqtod7usefphn"
+path="res://.godot/imported/05. Last Mission.mp3-528931ed4d7dcfd4a9d0345a9f13ba10.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/18 High Quality 8-bit Musics/05. Last Mission.mp3"
+dest_files=["res://.godot/imported/05. Last Mission.mp3-528931ed4d7dcfd4a9d0345a9f13ba10.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
