@@ -1,0 +1,19 @@
+[gd_scene format=4 uid="uid://dj77vwgi6hsii"]
+
+[ext_resource type="TileSet" uid="uid://csas8yh4reo3e" path="res://resources/tilesets/tileset_prototype.tres" id="1_7xvvk"]
+[ext_resource type="SpriteFrames" uid="uid://vkxdw2p81bmy" path="res://resources/sprite_frames/sprite_frames_cat.tres" id="2_5xsjt"]
+
+[node name="TestLevel" type="Node2D" unique_id=1122156498]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=718970014]
+tile_map_data = PackedByteArray("AAAAAAUAEAAEAAAAAAABAAUAEAAEAAAAAAACAAUAEAAEAAAAAAADAAUAEAAEAAAAAAAEAAUAEAAEAAAAAAAFAAUAEAAEAAAAAAAGAAUAEAAEAAAAAAAHAAUAEAAEAAAAAAAIAAUAEAAEAAAAAAAJAAUAEAAEAAAAAAAGAAQAEAACAAAAAAAHAAQAEAACAAAAAAAIAAQAEAACAAAAAAAJAAQAEAACAAAAAAABAAIAEAABAAAAAAACAAIAEAABAAAAAAADAAIAEAABAAAAAAA=")
+tile_set = ExtResource("1_7xvvk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1723288281]
+position = Vector2(209, 96)
+sprite_frames = ExtResource("2_5xsjt")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1520025701]
+anchor_mode = 0
