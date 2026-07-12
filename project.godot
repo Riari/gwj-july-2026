@@ -15,6 +15,10 @@ run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
 
+[autoload]
+
+ProjectMusicController="*uid://r5t485lr3p7t"
+
 [display]
 
 window/size/viewport_width=320
@@ -25,7 +29,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg", "res://addons/rider-plugin/plugin.cfg")
 
 [global_group]
 
