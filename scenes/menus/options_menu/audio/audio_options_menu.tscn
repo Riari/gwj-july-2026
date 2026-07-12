@@ -4,6 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://d250gbmaemodb" path="res://scenes/menus/options_menu/audio/audio_input_option_control.tscn" id="2_vnecy"]
 
 [node name="Audio" unique_id=1260793752 instance=ExtResource("1_33wdu")]
+custom_minimum_size = Vector2(150, 0)
+offset_right = -120.0
+offset_bottom = -100.0
 
-[node name="AudioInputOptionControl" parent="VBoxContainer" parent_id_path=PackedInt32Array(514968465) index="2" unique_id=369828337 instance=ExtResource("2_vnecy")]
+[node name="VBoxContainer" parent="." index="0" unique_id=514968465]
+custom_minimum_size = Vector2(200, 0)
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="AudioControlContainer" parent="VBoxContainer" index="0" unique_id=618324174]
+theme_override_constants/separation = 0
+
+[node name="MuteControl" parent="VBoxContainer" index="1" unique_id=1949902264]
+custom_minimum_size = Vector2(0, 20)
+
+[node name="AudioInputOptionControl" parent="VBoxContainer" index="2" unique_id=369828337 instance=ExtResource("2_vnecy")]
 layout_mode = 2
