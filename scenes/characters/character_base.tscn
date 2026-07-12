@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://iwhiqytys7vs"]
 
-[ext_resource type="Script" uid="uid://6usbr2qs3bss" path="res://scripts/character.gd" id="1_np3sr"]
+[ext_resource type="Script" uid="uid://6usbr2qs3bss" path="res://scripts/characters/character.gd" id="1_np3sr"]
 [ext_resource type="SpriteFrames" uid="uid://vkxdw2p81bmy" path="res://resources/sprite_frames/sprite_frames_cat_grey.tres" id="1_wtrka"]
+[ext_resource type="Shader" uid="uid://co45xskun2d51" path="res://resources/shaders/invert.gdshader" id="2_qm5ft"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rpncm"]
+shader = ExtResource("2_qm5ft")
+shader_parameter/flash_active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsd86"]
 size = Vector2(18, 25)
@@ -11,6 +16,7 @@ script = ExtResource("1_np3sr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1190068141]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_rpncm")
 sprite_frames = ExtResource("1_wtrka")
 animation = &"run"
 

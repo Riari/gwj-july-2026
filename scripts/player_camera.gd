@@ -9,9 +9,10 @@ class_name PlayerCamera extends Camera2D
 
 var is_centring_x: bool = false
 var is_centring_y: bool = false
+var is_following: bool = true
 
 func _physics_process(delta: float) -> void:
-	if player == null:
+	if player == null or !is_following:
 		return
 
 	var player_offset: Vector2 = player.global_position - global_position
@@ -39,3 +40,6 @@ func _physics_process(delta: float) -> void:
 			is_centring_y = false
 
 	global_position = new_position.round()
+
+func _on_player_character_died() -> void:
+	is_following = false

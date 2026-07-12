@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://p2cj0vvjlxlf"]
+
+[ext_resource type="Texture2D" uid="uid://dtd1i74ulo1fn" path="res://assets/textures/sprites/Cucumber.png" id="1_b7e1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsd86"]
+size = Vector2(12, 16)
+
+[node name="Cucumber" type="CharacterBody2D" unique_id=434547946 groups=["ouch"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=33154137 groups=["ouch"]]
+rotation = 3.101147e-05
+shape = SubResource("RectangleShape2D_gsd86")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=695124877]
+texture = ExtResource("1_b7e1l")

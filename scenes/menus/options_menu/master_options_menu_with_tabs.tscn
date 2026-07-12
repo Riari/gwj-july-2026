@@ -13,10 +13,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 script = ExtResource("1_b036r")
 
 [node name="Controls" parent="." unique_id=863637774 instance=ExtResource("2_fqpxk")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -26,7 +27,6 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Audio" parent="." unique_id=98013202 instance=ExtResource("4_bn2s3")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

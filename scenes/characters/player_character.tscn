@@ -1,14 +1,26 @@
 [gd_scene format=3 uid="uid://df0rjap034euw"]
 
 [ext_resource type="PackedScene" uid="uid://iwhiqytys7vs" path="res://scenes/characters/character_base.tscn" id="1_pihnd"]
-[ext_resource type="Script" uid="uid://cs28s7k3ecj8a" path="res://scripts/player_character.gd" id="2_oiidq"]
+[ext_resource type="Script" uid="uid://cs28s7k3ecj8a" path="res://scripts/characters/player_character.gd" id="2_oiidq"]
 [ext_resource type="AudioStream" uid="uid://bi4v6cjk0syh8" path="res://assets/audio/sfx/jump-1.ogg" id="3_h6v2g"]
+[ext_resource type="AudioStream" uid="uid://c5djq4oylaynx" path="res://assets/audio/sfx/hurt-1.wav" id="4_ar13e"]
 
 [node name="PlayerCharacter" unique_id=109084431 instance=ExtResource("1_pihnd")]
+collision_mask = 3
 script = ExtResource("2_oiidq")
 move_speed = 100.0
 jump_speed = -400.0
+max_health = 3
+hurt_disable_input_duration = 0.5
+hurt_flash_duration = 0.1
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1190068141]
+animation = &"dead"
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="." index="2" unique_id=1857376989]
 unique_name_in_owner = true
 stream = ExtResource("3_h6v2g")
+
+[node name="HurtAudio" type="AudioStreamPlayer" parent="." index="3" unique_id=1034827951]
+unique_name_in_owner = true
+stream = ExtResource("4_ar13e")
