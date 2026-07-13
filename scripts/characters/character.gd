@@ -1,6 +1,7 @@
 class_name Character extends CharacterBody2D
 
 signal on_init(health: int)
+signal on_heal(health_gained: int)
 signal on_hurt(health_lost: int)
 signal on_died
 
@@ -28,7 +29,7 @@ var hurt_direction: Vector2 = Vector2(0, 0)
 func _ready() -> void:
 	on_init.emit(current_health)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if current_health <= 0:
 		return
 
@@ -48,7 +49,7 @@ func _process(delta: float) -> void:
 	
 	global_position = global_position.round()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var collision := get_last_slide_collision()
 	if collision:
 		var collider := collision.get_collider()
@@ -70,6 +71,16 @@ func _on_hurt() -> void:
 	anim_sprite.material.set_shader_parameter("flash_active", true)
 	await get_tree().create_timer(hurt_flash_duration).timeout
 	anim_sprite.material.set_shader_parameter("flash_active", false)
+
+func on_pickup(pickup: Pickup) -> void:
+	var heal_amount := pickup.get_heal_value()
+	current_health += heal_amount
+	var healed_amount := heal_amount
+	if current_health > max_health:
+		healed_amount = healed_amount - (current_health - max_health)
+		current_health = max_health
+
+	on_heal.emit(healed_amount)
 
 func _on_died() -> void:
 	on_died.emit()

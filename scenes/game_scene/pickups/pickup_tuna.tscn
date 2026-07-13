@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cbx30scyupk6a"]
+
+[ext_resource type="Script" uid="uid://cesg35w3o1r6y" path="res://scripts/pickups/pickup.gd" id="1_gswwq"]
+[ext_resource type="Texture2D" uid="uid://cq0ckn52fmn0e" path="res://assets/textures/sprites/TunaCan.png" id="1_hql0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75cn0"]
+size = Vector2(26, 16)
+
+[node name="PickupTuna" type="Area2D" unique_id=604799530]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_gswwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1667892940]
+shape = SubResource("RectangleShape2D_75cn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=311997983]
+texture = ExtResource("1_hql0k")

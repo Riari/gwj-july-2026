@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dc7locbti0w82" path="res://scripts/level.gd" id="1_3hanc"]
 [ext_resource type="TileSet" uid="uid://csas8yh4reo3e" path="res://resources/tilesets/tileset_prototype.tres" id="1_7xvvk"]
-[ext_resource type="PackedScene" uid="uid://df0rjap034euw" path="res://scenes/characters/player_character.tscn" id="2_5xsjt"]
+[ext_resource type="PackedScene" uid="uid://df0rjap034euw" path="res://scenes/game_scene/characters/player_character.tscn" id="2_5xsjt"]
 [ext_resource type="AudioStream" uid="uid://djjn58xasv74p" path="res://assets/audio/music/Game Over (8-Bit Music).mp3" id="2_tglvs"]
 [ext_resource type="Shader" uid="uid://djf7f6jvxg2cr" path="res://resources/shaders/palette_limiter.gdshader" id="3_ga2yx"]
 [ext_resource type="Script" uid="uid://bmly16rgj0kuu" path="res://scripts/player_camera.gd" id="3_o4mvr"]
 [ext_resource type="Texture2D" uid="uid://gko8y81m1yg8" path="res://assets/textures/palettes/sweetie-16-1x.png" id="4_dpxjg"]
-[ext_resource type="PackedScene" uid="uid://p2cj0vvjlxlf" path="res://scenes/characters/cucumber.tscn" id="4_xiw1x"]
+[ext_resource type="PackedScene" uid="uid://p2cj0vvjlxlf" path="res://scenes/game_scene/characters/cucumber.tscn" id="4_xiw1x"]
 [ext_resource type="AudioStream" uid="uid://ckd565sbtxvtj" path="res://assets/audio/music/18 High Quality 8-bit Musics/10. Jester Theme.mp3" id="5_hu081"]
 [ext_resource type="PackedScene" uid="uid://cgg0gc4p5lj63" path="res://scenes/game_scene/ui/hud.tscn" id="5_lwywk"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="9_3hanc"]
+[ext_resource type="PackedScene" uid="uid://cbx30scyupk6a" path="res://scenes/game_scene/pickups/pickup_tuna.tscn" id="12_0bqqu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5xsjt"]
 shader = ExtResource("3_ga2yx")
@@ -85,7 +86,17 @@ mouse_filter = 2
 unique_name_in_owner = true
 stream = ExtResource("5_hu081")
 
+[node name="PickupTuna" parent="." unique_id=492907748 instance=ExtResource("12_0bqqu")]
+position = Vector2(1008, 152)
+
+[node name="PickupTuna2" parent="." unique_id=646206938 instance=ExtResource("12_0bqqu")]
+position = Vector2(1040, 152)
+
+[node name="PickupTuna3" parent="." unique_id=604799530 instance=ExtResource("12_0bqqu")]
+position = Vector2(48, 152)
+
 [connection signal="on_died" from="PlayerCharacter" to="." method="_on_player_character_died"]
 [connection signal="on_died" from="PlayerCharacter" to="Camera2D" method="_on_player_character_died"]
+[connection signal="on_heal" from="PlayerCharacter" to="UI/HUD" method="_on_player_character_heal"]
 [connection signal="on_hurt" from="PlayerCharacter" to="UI/HUD" method="_on_player_character_hurt"]
 [connection signal="on_init" from="PlayerCharacter" to="UI/HUD" method="_on_player_character_init"]
