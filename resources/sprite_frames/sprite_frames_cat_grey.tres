@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dgr283u26qrle" path="res://assets/textures/sprites/cats/grey/walking.png" id="2_v4qs2"]
 [ext_resource type="Texture2D" uid="uid://buyf34x4oe0w0" path="res://assets/textures/sprites/cats/grey/jumping.png" id="3_joaf6"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bin06"]
+atlas = ExtResource("2_v4qs2")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qemmq"]
+atlas = ExtResource("2_v4qs2")
+region = Rect2(128, 64, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_efe6k"]
 atlas = ExtResource("1_joaf6")
 region = Rect2(128, 0, 64, 64)
@@ -93,6 +101,17 @@ region = Rect2(192, 64, 64, 64)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bin06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qemmq")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_efe6k")

@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bbkpsvbt3mn06"]
+
+[ext_resource type="Texture2D" uid="uid://c8y88dbxx4a1m" path="res://assets/textures/sprites/attacks/Smear 01 Vertical 01.png" id="1_hp8ku"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odr3l"]
+atlas = ExtResource("1_hp8ku")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktq8n"]
+atlas = ExtResource("1_hp8ku")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15clj"]
+atlas = ExtResource("1_hp8ku")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yodgi"]
+atlas = ExtResource("1_hp8ku")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ehpy"]
+atlas = ExtResource("1_hp8ku")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tmui"]
+atlas = ExtResource("1_hp8ku")
+region = Rect2(192, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_odr3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktq8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15clj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yodgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ehpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tmui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odr3l")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]

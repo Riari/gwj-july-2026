@@ -1,10 +1,14 @@
-class_name PlayerCharacter extends Character
+class_name PlayerCharacter extends MovingCharacter
 
 @export_category("Movement")
 @export var move_speed: float = 400.0
 @export var jump_speed: float = -400.0
 
-@export_category("Pain")
+@export_category("Attack")
+@export var attack_cooldown: float = 0.25
+@export var attack_sounds: Array[AudioStream]
+
+@export_category("Health")
 @export var hurt_disable_input_duration: float = 0.5
 
 @export_category("Particles")
@@ -14,16 +18,25 @@ class_name PlayerCharacter extends Character
 @onready var jump_audio: AudioStreamPlayer = %JumpAudio
 @onready var hurt_audio: AudioStreamPlayer = %HurtAudio
 @onready var heal_audio: AudioStreamPlayer = %HealAudio
+@onready var attack_audio: AudioStreamPlayer = %AttackAudio
 
 var particle_scene := load("res://scenes/game_scene/particle.tscn")
 
+var attack_cooldown_timer: float = 0.0
 var hurt_disable_input_timer: float = 0.0
+
+func _ready() -> void:
+	super._ready()
+
+func _process(delta: float) -> void:
+	if attack_cooldown_timer > 0.0:
+		global_position = global_position.round()
+		return
+		
+	super._process(delta)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 	
 	if hurt_disable_input_timer > 0.0:
 		hurt_disable_input_timer -= delta
@@ -33,6 +46,12 @@ func _physics_process(delta: float) -> void:
 	if current_health <= 0:
 		move_and_slide()
 		return
+		
+	if attack_cooldown_timer > 0.0:
+		attack_cooldown_timer -= delta
+	
+	if Input.is_action_just_pressed("attack") and attack_cooldown_timer <= 0.0:
+		_on_attack()
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
@@ -56,8 +75,19 @@ func on_pickup(pickup: Pickup) -> void:
 		particle.texture = heal_particle
 		get_tree().current_scene.add_child(particle)
 
-func _on_hurt() -> void:
-	super._on_hurt()
+func _on_attack() -> void:
+	anim_sprite.play(ANIM_ATTACK)
+	attack_sprite.play()
+	attack_audio.stream = attack_sounds.pick_random()
+	attack_audio.play()
+	attack_cooldown_timer = attack_cooldown
+	
+	for body in attack_area.get_overlapping_bodies():
+		if body is Character:
+			body.hurt(self, 1)
+
+func _on_hurt(damage: int, direction: Vector2) -> void:
+	super._on_hurt(damage, direction)
 
 	hurt_disable_input_timer = hurt_disable_input_duration
 	hurt_audio.play()
