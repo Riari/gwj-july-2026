@@ -1,0 +1,35 @@
+﻿class_name GameState extends Resource
+
+const STATE_NAME: String = "GameState"
+const FILE_PATH: String = "res://scripts/resources/game_state.gd"
+
+@export var score: int
+@export var high_score: int
+
+static func has_game_state() -> bool:
+	return GlobalState.has_state(STATE_NAME)
+
+static func get_or_create_state() -> GameState:
+	return GlobalState.get_or_create_state(STATE_NAME, FILE_PATH)
+
+static func get_score() -> int:
+	if not has_game_state():
+		return 0
+	var game_state := get_or_create_state()
+	return game_state.score
+
+static func get_high_score() -> int:
+	if not has_game_state():
+		return 0
+	var game_state := get_or_create_state()
+	return game_state.score
+
+static func set_score(value: int) -> void:
+	var game_state := get_or_create_state()
+	game_state.score += value
+	GlobalState.save()
+
+static func set_high_score(value: int) -> void:
+	var game_state := get_or_create_state()
+	game_state.high_score += value
+	GlobalState.save()
