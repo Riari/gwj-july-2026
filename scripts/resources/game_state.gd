@@ -24,7 +24,7 @@ static func get_high_score() -> int:
 	if not has_game_state():
 		return 0
 	var game_state := get_or_create_state()
-	return game_state.score
+	return game_state.high_score
 
 static func add_score(amount: int) -> void:
 	var game_state := get_or_create_state()
@@ -35,10 +35,10 @@ static func add_score(amount: int) -> void:
 
 static func set_score(value: int) -> void:
 	var game_state := get_or_create_state()
-	game_state.score += value
+	game_state.score = value
 	GlobalState.save()
 
 static func set_high_score(value: int) -> void:
 	var game_state := get_or_create_state()
-	game_state.high_score += value
+	game_state.high_score = value
 	GlobalState.save()
