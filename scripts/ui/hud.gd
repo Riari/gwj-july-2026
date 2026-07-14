@@ -1,5 +1,9 @@
 class_name HUD extends Control
 
+func _process(_delta):
+	var score_label = get_node("ScoreLabel")
+	score_label.text = "Score: " + str(GameState.get_score())
+
 func _on_player_character_init(health: int) -> void:
 	%HeartBar.init(health)
 

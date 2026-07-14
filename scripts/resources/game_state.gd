@@ -1,4 +1,4 @@
-﻿class_name GameState extends Resource
+class_name GameState extends Resource
 
 const STATE_NAME: String = "GameState"
 const FILE_PATH: String = "res://scripts/resources/game_state.gd"
@@ -10,6 +10,8 @@ static func has_game_state() -> bool:
 	return GlobalState.has_state(STATE_NAME)
 
 static func get_or_create_state() -> GameState:
+	if GlobalState.current == null:
+		GlobalState.open()
 	return GlobalState.get_or_create_state(STATE_NAME, FILE_PATH)
 
 static func get_score() -> int:
@@ -23,6 +25,13 @@ static func get_high_score() -> int:
 		return 0
 	var game_state := get_or_create_state()
 	return game_state.score
+
+static func add_score(amount: int) -> void:
+	var game_state := get_or_create_state()
+	game_state.score += amount
+	if game_state.score > game_state.high_score:
+		game_state.high_score = game_state.score
+	GlobalState.save()
 
 static func set_score(value: int) -> void:
 	var game_state := get_or_create_state()

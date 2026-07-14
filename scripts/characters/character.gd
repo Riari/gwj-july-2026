@@ -10,6 +10,9 @@ signal on_died
 @export var hurt_jump_strength: float = 200.0
 @export var hurt_knockback_strength: float = 100.0
 
+@export_category("Score")
+@export var score_value: int = 0
+
 var current_health: int
 
 func _ready() -> void:
@@ -43,5 +46,7 @@ func _on_hurt(damage: int, direction: Vector2) -> void:
 		direction = Vector2.ZERO
 
 func _on_died() -> void:
+	if score_value > 0:
+		GameState.add_score(score_value)
 	on_died.emit()
 	%CollisionShape2D.set_deferred("disabled", true)
