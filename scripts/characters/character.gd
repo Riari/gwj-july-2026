@@ -42,6 +42,8 @@ func _on_hurt(damage: int, direction: Vector2) -> void:
 		sprite.material.set_shader_parameter("flash_active", false)
 
 	if direction != Vector2.ZERO:
+		if is_zero_approx(direction.x):
+			direction.x = [-1.0, 1.0].pick_random()
 		velocity += Vector2(direction.x * hurt_knockback_strength, -hurt_jump_strength)
 		direction = Vector2.ZERO
 
