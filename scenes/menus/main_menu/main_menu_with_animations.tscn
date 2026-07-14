@@ -7,6 +7,14 @@
 [ext_resource type="Shader" uid="uid://djf7f6jvxg2cr" path="res://resources/shaders/palette_limiter.gdshader" id="5_ixa71"]
 [ext_resource type="Texture2D" uid="uid://gko8y81m1yg8" path="res://assets/textures/palettes/sweetie-16-1x.png" id="6_2k5l7"]
 
+[sub_resource type="Gradient" id="Gradient_ixa71"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.93529564, 0.56866926, 0.46302778, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oyxjp"]
+gradient = SubResource("Gradient_ixa71")
+fill_from = Vector2(1, 1)
+
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
 length = 2.4
@@ -325,6 +333,10 @@ script = ExtResource("2_sr523")
 game_scene_path = "res://scenes/game_scene/game_ui.tscn"
 options_packed_scene = ExtResource("3_ixa71")
 credits_packed_scene = ExtResource("4_2k5l7")
+
+[node name="BackgroundTextureRect" parent="." index="0" unique_id=1025367827]
+texture = SubResource("GradientTexture2D_oyxjp")
+expand_mode = 4
 
 [node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1242136020]
 libraries/ = SubResource("AnimationLibrary_2kqig")

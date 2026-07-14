@@ -7,42 +7,43 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.823636, 0.744991, 0.659007, 1)
-border_width_right = 2
+bg_color = Color(0.10653389, 0.30868635, 0.778506, 1)
 border_width_bottom = 2
-border_color = Color(0.662913, 0.549096, 0.478248, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krvwn"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.662913, 0.549096, 0.478248, 1)
-border_width_right = 2
+bg_color = Color(0.07039546, 0.23556402, 0.61885524, 1)
 border_width_bottom = 2
-border_color = Color(0.466529, 0.360525, 0.333165, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+border_color = Color(1.0810618e-09, 0.0024063096, 0.0030029889, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfyr3"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.466529, 0.360525, 0.333165, 1)
-border_width_right = 2
+bg_color = Color(0.054841816, 0.20006573, 0.5391458, 1)
 border_width_bottom = 2
-border_color = Color(0.282353, 0.231067, 0.227161, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tytr8"]
 bg_color = Color(0.282353, 0.231067, 0.227161, 1)
