@@ -1,4 +1,4 @@
-class_name HeartBar extends HBoxContainer
+class_name HeartBar extends HFlowContainer
 
 signal hearts_depleted
 

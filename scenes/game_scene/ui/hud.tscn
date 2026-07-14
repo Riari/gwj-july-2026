@@ -14,23 +14,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_okla1")
 
-[node name="HeartBar" type="HBoxContainer" parent="." unique_id=840810128]
+[node name="HeartBar" type="HFlowContainer" parent="." unique_id=2030335953]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 8.0
-offset_bottom = 8.0
-theme_override_constants/separation = 0
+offset_right = 208.0
+offset_bottom = 48.0
 script = ExtResource("1_p3vr1")
 heart_filled = ExtResource("2_okla1")
 heart_empty = ExtResource("3_t7vuv")
 
-[node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 200.0
+[node name="ScoreLabel" type="Label" parent="." unique_id=655886341]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -119.99942
 offset_top = 8.0
-offset_right = 312.0
+offset_right = -8.0
 offset_bottom = 28.0
+grow_horizontal = 0
 text = "Score: 0"
 horizontal_alignment = 2
