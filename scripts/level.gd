@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	GameState.reset_score()
+
 @export var game_over_music: AudioStream
 
 @onready var fade_out: ColorRect = %FadeOut

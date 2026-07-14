@@ -15,16 +15,17 @@ static func get_or_create_state() -> GameState:
 	return GlobalState.get_or_create_state(STATE_NAME, FILE_PATH)
 
 static func get_score() -> int:
-	if not has_game_state():
-		return 0
 	var game_state := get_or_create_state()
 	return game_state.score
 
 static func get_high_score() -> int:
-	if not has_game_state():
-		return 0
 	var game_state := get_or_create_state()
 	return game_state.high_score
+
+static func reset_score() -> void:
+	var game_state := get_or_create_state()
+	game_state.score = 0
+	GlobalState.save()
 
 static func add_score(amount: int) -> void:
 	var game_state := get_or_create_state()
