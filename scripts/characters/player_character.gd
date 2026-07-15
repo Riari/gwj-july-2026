@@ -54,10 +54,12 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack") and attack_cooldown_timer <= 0.0:
 		_on_attack()
+		lock_anim = false
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
 		jump_audio.play()
+		lock_anim = false
 		_set_platform_collision_enabled(false)
 
 	if jump_through_collision_disabled and velocity.y >= 0.0:
@@ -66,8 +68,13 @@ func _physics_process(delta: float) -> void:
 	last_move_direction = Input.get_axis("move_left", "move_right")
 	if last_move_direction:
 		velocity.x = last_move_direction * move_speed
+		lock_anim = false
 	else:
 		velocity.x = 0.0
+		
+		if Input.is_action_pressed("move_down"):
+			anim_sprite.play(ANIM_LOAF)
+			lock_anim = true
 
 	move_and_slide()
 

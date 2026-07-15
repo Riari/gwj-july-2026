@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ck1agha7dylvk" path="res://assets/textures/sprites/cats/grey/running.png" id="2_8i0ju"]
 [ext_resource type="Texture2D" uid="uid://dgr283u26qrle" path="res://assets/textures/sprites/cats/grey/walking.png" id="2_v4qs2"]
 [ext_resource type="Texture2D" uid="uid://buyf34x4oe0w0" path="res://assets/textures/sprites/cats/grey/jumping.png" id="3_joaf6"]
+[ext_resource type="Texture2D" uid="uid://e6gh5ko45h21" path="res://assets/textures/sprites/cats/grey/loafing.png" id="6_ivkvs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bin06"]
 atlas = ExtResource("2_v4qs2")
@@ -50,6 +51,10 @@ region = Rect2(0, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5wjc"]
 atlas = ExtResource("3_joaf6")
 region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctuy1"]
+atlas = ExtResource("6_ivkvs")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fx3sa"]
 atlas = ExtResource("2_8i0ju")
@@ -158,6 +163,14 @@ animations = [{
 "loop": 0,
 "name": &"jump",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctuy1")
+}],
+"loop": 1,
+"name": &"loaf",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bfawmrncqjvxm" path="res://resources/tilesets/tileset_stairs_and_ledges.tres" id="2_m87w5"]
 [ext_resource type="PackedScene" uid="uid://cbx30scyupk6a" path="res://scenes/game_scene/pickups/pickup_tuna.tscn" id="3_8c2ri"]
 [ext_resource type="PackedScene" uid="uid://1mh4o0406ot4" path="res://scenes/game_scene/objects/catbed.tscn" id="4_8wrbj"]
-[ext_resource type="AudioStream" uid="uid://06q38flmng5r" path="res://assets/audio/music/Snabisch/Make a Game - Sixty Minutes FREE Music - 15 The Restless Chicken.ogg" id="5_12wtf"]
+[ext_resource type="AudioStream" uid="uid://bbo6qu2ykdlar" path="res://assets/audio/music/Snabisch/Make a Game - Sixty Minutes FREE Music - 17 My Life Is Broken.ogg" id="5_12wtf"]
 
 [node name="LivingRoom" unique_id=1122156498 instance=ExtResource("1_idox7")]
 

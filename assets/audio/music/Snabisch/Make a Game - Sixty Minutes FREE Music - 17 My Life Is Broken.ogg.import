@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bbo6qu2ykdlar"
+path="res://.godot/imported/Make a Game - Sixty Minutes FREE Music - 17 My Life Is Broken.ogg-3979a07ead7047495b432c8deb437e89.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Snabisch/Make a Game - Sixty Minutes FREE Music - 17 My Life Is Broken.ogg"
+dest_files=["res://.godot/imported/Make a Game - Sixty Minutes FREE Music - 17 My Life Is Broken.ogg-3979a07ead7047495b432c8deb437e89.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

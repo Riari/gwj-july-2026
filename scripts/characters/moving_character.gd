@@ -12,18 +12,23 @@ const ANIM_JUMP: String = "jump"
 const ANIM_FALL: String = "fall"
 const ANIM_DEAD: String = "dead"
 const ANIM_ATTACK: String = "attack"
+const ANIM_LOAF: String = "loaf"
 
 var last_move_direction: float = 0.0
 var current_anim: String = ANIM_IDLE
 
 var attack_area_x_offset: float
 
+var lock_anim: bool = false
+
 func _ready() -> void:
 	super._ready()
 	attack_area_x_offset = attack_area.position.x
 
-func _process(_delta: float) -> void:
-	if current_health <= 0:
+func _process(_delta: float) -> void:	
+	global_position = global_position.round()
+
+	if current_health <= 0 or lock_anim:
 		return
 
 	if is_on_floor():
@@ -44,8 +49,6 @@ func _process(_delta: float) -> void:
 			attack_area.position.x = attack_area_x_offset
 		else:
 			attack_area.position.x = -attack_area_x_offset
-	
-	global_position = global_position.round()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
