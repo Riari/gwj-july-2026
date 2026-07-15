@@ -7,6 +7,7 @@
 script = ExtResource("1_jqy7h")
 
 [node name="HUD" parent="." unique_id=2080719809 instance=ExtResource("1_bsyii")]
+unique_name_in_owner = true
 
 [node name="FadeRect" type="ColorRect" parent="." unique_id=1945369765]
 unique_name_in_owner = true

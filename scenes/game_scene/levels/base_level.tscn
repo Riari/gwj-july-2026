@@ -37,3 +37,6 @@ stream = ExtResource("11_14sth")
 
 [connection signal="on_died" from="PlayerCharacter" to="." method="_on_player_character_died"]
 [connection signal="on_died" from="PlayerCharacter" to="Camera2D" method="_on_player_character_died"]
+[connection signal="on_heal" from="PlayerCharacter" to="." method="_on_player_character_heal"]
+[connection signal="on_hurt" from="PlayerCharacter" to="." method="_on_player_character_hurt"]
+[connection signal="on_init" from="PlayerCharacter" to="." method="_on_player_character_init" flags=3]
