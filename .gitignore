@@ -30,3 +30,4 @@ Exports/
 # Plugin specific
 addons/script-ide/*
 addons/maaacks_scene_loader/*
+addons/rider-plugin/bin/windows/~rider-gdextension.windows.editor.x86_64.dll
