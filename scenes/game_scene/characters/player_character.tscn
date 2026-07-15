@@ -13,15 +13,18 @@
 
 [node name="PlayerCharacter" unique_id=109084431 instance=ExtResource("1_pihnd")]
 collision_layer = 4
-collision_mask = 31
 script = ExtResource("2_oiidq")
 move_speed = 100.0
 jump_speed = -400.0
+jump_through_disable_collision_duration = 0.2
 attack_cooldown = 0.25
 attack_sounds = Array[AudioStream]([ExtResource("3_o7di7"), ExtResource("4_nkyyi"), ExtResource("5_dh8nh"), ExtResource("6_2rnbg")])
 hurt_disable_input_duration = 0.5
 particle_spawn_offset = Vector2(0, -1)
 heal_particle = ExtResource("3_pjtas")
+
+[node name="AttackArea" parent="." index="0" unique_id=586517986]
+collision_mask = 8
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1190068141]
 animation = &"dead"

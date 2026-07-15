@@ -3,6 +3,7 @@ class_name PlayerCharacter extends MovingCharacter
 @export_category("Movement")
 @export var move_speed: float = 400.0
 @export var jump_speed: float = -400.0
+@export var jump_through_disable_collision_duration: float = 0.2
 
 @export_category("Attack")
 @export var attack_cooldown: float = 0.25
@@ -25,7 +26,7 @@ var particle_scene := load("res://scenes/game_scene/particle.tscn")
 var attack_cooldown_timer: float = 0.0
 var hurt_disable_input_timer: float = 0.0
 
-var jump_through_collision_disabled: bool = false
+var jump_through_collision_disabled_timer: float = 0.0
 
 func _ready() -> void:
 	super._ready()
@@ -55,15 +56,24 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and attack_cooldown_timer <= 0.0:
 		_on_attack()
 		lock_anim = false
+		
+	if Input.is_action_pressed("move_down") and is_on_floor():
+		anim_sprite.play(ANIM_LOAF)
+		lock_anim = true
+
+	if jump_through_collision_disabled_timer > 0.0:
+		jump_through_collision_disabled_timer -= delta
+
+	if jump_through_collision_disabled_timer <= 0.0 and velocity.y > 0.0:
+		_set_jump_through_collision_enabled(true)
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_speed
-		jump_audio.play()
-		lock_anim = false
-		_set_platform_collision_enabled(false)
+		_set_jump_through_collision_enabled(false)
 
-	if jump_through_collision_disabled and velocity.y >= 0.0:
-		_set_platform_collision_enabled(true)
+		if !Input.is_action_pressed("move_down"):
+			velocity.y = jump_speed
+			jump_audio.play()
+			lock_anim = false
 
 	last_move_direction = Input.get_axis("move_left", "move_right")
 	if last_move_direction:
@@ -71,16 +81,16 @@ func _physics_process(delta: float) -> void:
 		lock_anim = false
 	else:
 		velocity.x = 0.0
-		
-		if Input.is_action_pressed("move_down"):
-			anim_sprite.play(ANIM_LOAF)
-			lock_anim = true
+	
+	if !velocity.is_zero_approx():
+		lock_anim = false
 
 	move_and_slide()
 
-func _set_platform_collision_enabled(enabled: bool) -> void:
+func _set_jump_through_collision_enabled(enabled: bool) -> void:
 	set_collision_mask_value(CollisionLayers.JUMP_THROUGH, enabled)
-	jump_through_collision_disabled = not enabled
+	if not enabled:
+		jump_through_collision_disabled_timer = jump_through_disable_collision_duration
 
 func on_pickup(pickup: Pickup) -> void:
 	super.on_pickup(pickup)
