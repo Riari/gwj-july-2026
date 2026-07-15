@@ -16,6 +16,8 @@ shader_parameter/flash_active = false
 size = Vector2(18, 22)
 
 [node name="CharacterBase" type="CharacterBody2D" unique_id=109084431]
+collision_layer = 0
+collision_mask = 31
 script = ExtResource("1_np3sr")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=586517986]

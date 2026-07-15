@@ -77,4 +77,6 @@ func _on_hurt(damage: int, direction: Vector2) -> void:
 func _on_died() -> void:
 	super._on_died()
 	anim_sprite.play(ANIM_DEAD)
-	set_collision_mask_value(3, false)
+	
+	set_collision_mask_value(CollisionLayers.WORLD, false)
+	set_collision_mask_value(CollisionLayers.JUMP_THROUGH, false)

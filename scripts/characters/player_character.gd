@@ -25,6 +25,8 @@ var particle_scene := load("res://scenes/game_scene/particle.tscn")
 var attack_cooldown_timer: float = 0.0
 var hurt_disable_input_timer: float = 0.0
 
+var jump_through_collision_disabled: bool = false
+
 func _ready() -> void:
 	super._ready()
 
@@ -56,6 +58,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
 		jump_audio.play()
+		_set_platform_collision_enabled(false)
+
+	if jump_through_collision_disabled and velocity.y >= 0.0:
+		_set_platform_collision_enabled(true)
 
 	last_move_direction = Input.get_axis("move_left", "move_right")
 	if last_move_direction:
@@ -64,6 +70,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0.0
 
 	move_and_slide()
+
+func _set_platform_collision_enabled(enabled: bool) -> void:
+	set_collision_mask_value(CollisionLayers.JUMP_THROUGH, enabled)
+	jump_through_collision_disabled = not enabled
 
 func on_pickup(pickup: Pickup) -> void:
 	super.on_pickup(pickup)
