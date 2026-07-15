@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bx2pl338qapx8"]
+
+[ext_resource type="Shader" uid="uid://djf7f6jvxg2cr" path="res://resources/shaders/palette_limiter.gdshader" id="1_6vcr6"]
+[ext_resource type="Texture2D" uid="uid://gko8y81m1yg8" path="res://assets/textures/palettes/sweetie-16-1x.png" id="2_nctq4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xsjt"]
+shader = ExtResource("1_6vcr6")
+shader_parameter/num_colors = 16
+shader_parameter/PALETTE_TEXTURE = ExtResource("2_nctq4")
+
+[node name="PostProcessing" type="CanvasLayer" unique_id=179006401]
+layer = 2
+
+[node name="PaletteLimiter" type="ColorRect" parent="." unique_id=412316650]
+material = SubResource("ShaderMaterial_5xsjt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

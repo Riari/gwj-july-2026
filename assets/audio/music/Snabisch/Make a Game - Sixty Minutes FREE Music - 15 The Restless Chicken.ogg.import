@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://06q38flmng5r"
+path="res://.godot/imported/Make a Game - Sixty Minutes FREE Music - 15 The Restless Chicken.ogg-5e6c40b92c31b6335e61cf91b799ec3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Snabisch/Make a Game - Sixty Minutes FREE Music - 15 The Restless Chicken.ogg"
+dest_files=["res://.godot/imported/Make a Game - Sixty Minutes FREE Music - 15 The Restless Chicken.ogg-5e6c40b92c31b6335e61cf91b799ec3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

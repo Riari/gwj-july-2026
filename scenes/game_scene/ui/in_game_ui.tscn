@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bjaxk1425stxv"]
+
+[ext_resource type="PackedScene" uid="uid://cgg0gc4p5lj63" path="res://scenes/game_scene/ui/hud.tscn" id="1_bsyii"]
+[ext_resource type="Script" uid="uid://bye7ex066as68" path="res://scripts/ui/in_game_ui.gd" id="1_jqy7h"]
+
+[node name="InGameUI" type="CanvasLayer" unique_id=707547073]
+script = ExtResource("1_jqy7h")
+
+[node name="HUD" parent="." unique_id=2080719809 instance=ExtResource("1_bsyii")]
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1945369765]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=868045865]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1

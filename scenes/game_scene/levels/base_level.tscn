@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dqm8170pj7y3u"]
+
+[ext_resource type="Script" uid="uid://dc7locbti0w82" path="res://scripts/level.gd" id="1_pnxco"]
+[ext_resource type="AudioStream" uid="uid://djjn58xasv74p" path="res://assets/audio/music/Game Over (8-Bit Music).mp3" id="2_dn6h0"]
+[ext_resource type="TileSet" uid="uid://csas8yh4reo3e" path="res://resources/tilesets/tileset_prototype.tres" id="3_sjavj"]
+[ext_resource type="PackedScene" uid="uid://df0rjap034euw" path="res://scenes/game_scene/characters/player_character.tscn" id="4_77bc7"]
+[ext_resource type="Script" uid="uid://bmly16rgj0kuu" path="res://scripts/player_camera.gd" id="5_4yf8q"]
+[ext_resource type="PackedScene" uid="uid://bjaxk1425stxv" path="res://scenes/game_scene/ui/in_game_ui.tscn" id="8_ut31b"]
+[ext_resource type="PackedScene" uid="uid://bx2pl338qapx8" path="res://scenes/game_scene/effects/post_processing.tscn" id="9_0lk0a"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="10_u4sdr"]
+[ext_resource type="AudioStream" uid="uid://ckd565sbtxvtj" path="res://assets/audio/music/18 High Quality 8-bit Musics/10. Jester Theme.mp3" id="11_14sth"]
+
+[node name="TestLevel" type="Node2D" unique_id=1122156498]
+script = ExtResource("1_pnxco")
+game_over_music = ExtResource("2_dn6h0")
+
+[node name="GeometryTileLayer" type="TileMapLayer" parent="." unique_id=718970014]
+tile_set = ExtResource("3_sjavj")
+
+[node name="PlayerCharacter" parent="." unique_id=109084431 instance=ExtResource("4_77bc7")]
+position = Vector2(115, 129)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1520025701 node_paths=PackedStringArray("player")]
+position = Vector2(115, 148)
+script = ExtResource("5_4yf8q")
+player = NodePath("../PlayerCharacter")
+centre_adjust = Vector2(0, 14.44)
+
+[node name="InGameUI" parent="." unique_id=707547073 instance=ExtResource("8_ut31b")]
+unique_name_in_owner = true
+
+[node name="PostProcessing" parent="." unique_id=179006401 instance=ExtResource("9_0lk0a")]
+
+[node name="Music" parent="." unique_id=1446051342 instance=ExtResource("10_u4sdr")]
+unique_name_in_owner = true
+stream = ExtResource("11_14sth")
+
+[connection signal="on_died" from="PlayerCharacter" to="." method="_on_player_character_died"]
+[connection signal="on_died" from="PlayerCharacter" to="Camera2D" method="_on_player_character_died"]

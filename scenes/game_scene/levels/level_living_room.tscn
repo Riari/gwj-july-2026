@@ -1,0 +1,40 @@
+[gd_scene format=4 uid="uid://defjvcue4xdw8"]
+
+[ext_resource type="PackedScene" uid="uid://dqm8170pj7y3u" path="res://scenes/game_scene/levels/base_level.tscn" id="1_idox7"]
+[ext_resource type="TileSet" uid="uid://bfawmrncqjvxm" path="res://resources/tilesets/tileset_stairs_and_ledges.tres" id="2_m87w5"]
+[ext_resource type="PackedScene" uid="uid://cbx30scyupk6a" path="res://scenes/game_scene/pickups/pickup_tuna.tscn" id="3_8c2ri"]
+[ext_resource type="PackedScene" uid="uid://1mh4o0406ot4" path="res://scenes/game_scene/objects/catbed.tscn" id="4_8wrbj"]
+[ext_resource type="AudioStream" uid="uid://06q38flmng5r" path="res://assets/audio/music/Snabisch/Make a Game - Sixty Minutes FREE Music - 15 The Restless Chicken.ogg" id="5_12wtf"]
+
+[node name="LivingRoom" unique_id=1122156498 instance=ExtResource("1_idox7")]
+
+[node name="GeometryTileLayer" parent="." index="0" unique_id=718970014]
+tile_map_data = PackedByteArray("AAADAAUAEAABAAAAAAAEAAUAEAABAAAAAAAFAAUAEAABAAAAAAAGAAUAEAABAAAAAAAHAAUAEAABAAAAAAAIAAUAEAABAAAAAAACAAUAEAABAAAAAAABAAUAEAABAAAAAAAAAAUAEAABAAAAAAAJAAUAEAABAAAAAAAKAAUAEAABAAAAAAALAAUAEAABAAAAAAAMAAUAEAABAAAAAAANAAUAEAABAAAAAAAOAAUAEAABAAAAAAAPAAUAEAABAAAAAAD//wUAEAABAAAAAAD+/wUAEAABAAAAAAD9/wUAEAABAAAAAAD8/wUAEAABAAAAAAD7/wUAEAABAAAAAAD6/wUAEAABAAAAAAD5/wUAEAABAAAAAAD4/wUAEAABAAAAAAD3/wUAEAABAAAAAAA=")
+
+[node name="StairsAndLedgesTileLayer" type="TileMapLayer" parent="." index="1" unique_id=54482561]
+tile_map_data = PackedByteArray("AAAGAAQAAAADAAAAAAAHAAQAAAAEAAAAAAAHAAMAAAABAAAAAAAJAAIAAAABAAAAAAAIAAMAAAAFAAAAAAAJAAMAAAAEAAAAAAAKAAIAAAAEAAAAAAAKAAEAAAACAAAAAAA=")
+tile_set = ExtResource("2_m87w5")
+
+[node name="PickupTuna" parent="." index="2" unique_id=604799530 instance=ExtResource("3_8c2ri")]
+position = Vector2(209, 123)
+
+[node name="PickupTuna2" parent="." index="3" unique_id=219573545 instance=ExtResource("3_8c2ri")]
+position = Vector2(245, 91)
+
+[node name="PickupTuna3" parent="." index="4" unique_id=442424244 instance=ExtResource("3_8c2ri")]
+position = Vector2(272, 91)
+
+[node name="PickupTuna4" parent="." index="5" unique_id=156901364 instance=ExtResource("3_8c2ri")]
+position = Vector2(306, 59)
+
+[node name="Catbed" parent="." index="6" unique_id=351176570 instance=ExtResource("4_8wrbj")]
+position = Vector2(336, 25)
+
+[node name="PlayerCharacter" parent="." index="7" unique_id=109084431]
+position = Vector2(-244, 129)
+
+[node name="Camera2D" parent="." index="8" unique_id=1520025701]
+position = Vector2(-244, 148)
+
+[node name="Music" parent="." index="11" unique_id=1446051342]
+stream = ExtResource("5_12wtf")

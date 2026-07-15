@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://1mh4o0406ot4"]
+
+[ext_resource type="Texture2D" uid="uid://doaj7h2ffpn18" path="res://assets/textures/sprites/Catbed.png" id="1_pu2e8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsd86"]
+size = Vector2(22, 8)
+
+[node name="Catbed" type="StaticBody2D" unique_id=351176570]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=386207220]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_gsd86")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=169061929]
+texture = ExtResource("1_pu2e8")

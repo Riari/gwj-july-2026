@@ -13,7 +13,7 @@ shader = ExtResource("2_qm5ft")
 shader_parameter/flash_active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsd86"]
-size = Vector2(18, 25)
+size = Vector2(18, 22)
 
 [node name="CharacterBase" type="CharacterBody2D" unique_id=109084431]
 script = ExtResource("1_np3sr")
@@ -40,5 +40,5 @@ animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797285842]
 unique_name_in_owner = true
-position = Vector2(0, 18.5)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_gsd86")
