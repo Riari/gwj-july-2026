@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cwflb3u8yerv0" path="res://assets/audio/sfx/powerup-2.wav" id="5_bmrvl"]
 [ext_resource type="AudioStream" uid="uid://dbq02mdvk1hbv" path="res://assets/audio/sfx/attack-3.wav" id="5_dh8nh"]
 [ext_resource type="AudioStream" uid="uid://clca8kara6no7" path="res://assets/audio/sfx/attack-4.wav" id="6_2rnbg"]
+[ext_resource type="SpriteFrames" uid="uid://gsc1qib0rlya" path="res://resources/sprite_frames/sprite_frames_cat_black.tres" id="8_nkyyi"]
 
 [node name="PlayerCharacter" unique_id=109084431 instance=ExtResource("1_pihnd")]
 collision_layer = 4
@@ -27,6 +28,7 @@ heal_particle = ExtResource("3_pjtas")
 collision_mask = 8
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1190068141]
+sprite_frames = ExtResource("8_nkyyi")
 animation = &"dead"
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="." index="2" unique_id=1857376989]
