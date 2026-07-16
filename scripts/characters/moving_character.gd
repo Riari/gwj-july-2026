@@ -3,6 +3,7 @@ class_name MovingCharacter extends Character
 signal on_heal(health_gained: int)
 
 @onready var anim_sprite: AnimatedSprite2D = %AnimatedSprite2D
+@onready var in_front: Node2D = %InFront
 @onready var attack_area: Area2D = %AttackArea
 @onready var attack_sprite: AnimatedSprite2D = %AttackSprite
 
@@ -17,13 +18,13 @@ const ANIM_LOAF: String = "loaf"
 var last_move_direction: float = 0.0
 var current_anim: String = ANIM_IDLE
 
-var attack_area_x_offset: float
+var in_front_x_offset: float
 
 var lock_anim: bool = false
 
 func _ready() -> void:
 	super._ready()
-	attack_area_x_offset = attack_area.position.x
+	in_front_x_offset = in_front.position.x
 
 func _process(_delta: float) -> void:	
 	global_position = global_position.round()
@@ -46,9 +47,9 @@ func _process(_delta: float) -> void:
 		anim_sprite.flip_h = last_move_direction < 0.0
 		attack_sprite.flip_h = last_move_direction < 0.0
 		if last_move_direction > 0:
-			attack_area.position.x = attack_area_x_offset
+			in_front.position.x = in_front_x_offset
 		else:
-			attack_area.position.x = -attack_area_x_offset
+			in_front.position.x = -in_front_x_offset
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

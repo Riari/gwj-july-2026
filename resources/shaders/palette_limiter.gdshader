@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform int num_colors: hint_range(2,16) = 8;
 uniform sampler2D PALETTE_TEXTURE: hint_default_black;
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 
 vec3 palette_limiter (in vec3 albedo) {
 	float estimation_cutoff = 0.001;

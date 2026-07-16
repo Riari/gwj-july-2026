@@ -16,10 +16,16 @@ class_name PlayerCharacter extends MovingCharacter
 @export var particle_spawn_offset: Vector2 = Vector2(0, -1.0)
 @export var heal_particle: Texture2D
 
+@export_category("Audio")
+@export var meow_sounds: Array[AudioStream]
+
 @onready var jump_audio: AudioStreamPlayer = %JumpAudio
 @onready var hurt_audio: AudioStreamPlayer = %HurtAudio
 @onready var heal_audio: AudioStreamPlayer = %HealAudio
 @onready var attack_audio: AudioStreamPlayer = %AttackAudio
+@onready var meow_audio: AudioStreamPlayer = %AttackAudio
+
+@onready var meow_sprite: Sprite2D = %MeowSprite
 
 var particle_scene := load("res://scenes/game_scene/particle.tscn")
 
@@ -30,12 +36,20 @@ var jump_through_collision_disabled_timer: float = 0.0
 
 func _ready() -> void:
 	super._ready()
+	meow_sprite.visible = false
+	meow_audio.finished.connect(on_meow_end)
 
 func _process(delta: float) -> void:
 	if attack_cooldown_timer > 0.0:
 		global_position = global_position.round()
 		return
-		
+	
+	if Input.is_action_just_pressed("meow"):
+		meow()
+
+	if last_move_direction != 0.0:
+		meow_sprite.flip_h = last_move_direction < 0.0
+	
 	super._process(delta)
 
 func _physics_process(delta: float) -> void:
@@ -86,6 +100,14 @@ func _physics_process(delta: float) -> void:
 		lock_anim = false
 
 	move_and_slide()
+
+func meow() -> void:
+	meow_audio.stream = meow_sounds.pick_random()
+	meow_audio.play()
+	meow_sprite.visible = true
+
+func on_meow_end() -> void:
+	meow_sprite.visible = false
 
 func _set_jump_through_collision_enabled(enabled: bool) -> void:
 	set_collision_mask_value(CollisionLayers.JUMP_THROUGH, enabled)

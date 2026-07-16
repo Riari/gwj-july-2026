@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dc7locbti0w82" path="res://scripts/level.gd" id="1_pnxco"]
 [ext_resource type="AudioStream" uid="uid://djjn58xasv74p" path="res://assets/audio/music/Game Over (8-Bit Music).mp3" id="2_dn6h0"]
+[ext_resource type="TileSet" uid="uid://bb73p777p8p2y" path="res://resources/tilesets/tileset_wallpaper.tres" id="3_fvfo3"]
 [ext_resource type="TileSet" uid="uid://csas8yh4reo3e" path="res://resources/tilesets/tileset_prototype.tres" id="3_sjavj"]
 [ext_resource type="PackedScene" uid="uid://df0rjap034euw" path="res://scenes/game_scene/characters/player_character.tscn" id="4_77bc7"]
 [ext_resource type="Script" uid="uid://bmly16rgj0kuu" path="res://scripts/player_camera.gd" id="5_4yf8q"]
@@ -13,6 +14,9 @@
 [node name="TestLevel" type="Node2D" unique_id=1122156498]
 script = ExtResource("1_pnxco")
 game_over_music = ExtResource("2_dn6h0")
+
+[node name="WallpaperTileLayer" type="TileMapLayer" parent="." unique_id=2100211107]
+tile_set = ExtResource("3_fvfo3")
 
 [node name="GeometryTileLayer" type="TileMapLayer" parent="." unique_id=718970014]
 tile_set = ExtResource("3_sjavj")

@@ -10,7 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://cwflb3u8yerv0" path="res://assets/audio/sfx/powerup-2.wav" id="5_bmrvl"]
 [ext_resource type="AudioStream" uid="uid://dbq02mdvk1hbv" path="res://assets/audio/sfx/attack-3.wav" id="5_dh8nh"]
 [ext_resource type="AudioStream" uid="uid://clca8kara6no7" path="res://assets/audio/sfx/attack-4.wav" id="6_2rnbg"]
+[ext_resource type="AudioStream" uid="uid://cregtsuhntt55" path="res://assets/audio/sfx/meow-1.wav" id="8_m73na"]
 [ext_resource type="SpriteFrames" uid="uid://gsc1qib0rlya" path="res://resources/sprite_frames/sprite_frames_cat_black.tres" id="8_nkyyi"]
+[ext_resource type="AudioStream" uid="uid://dbmcmdlh241s0" path="res://assets/audio/sfx/meow-2.wav" id="9_tdcod"]
+[ext_resource type="AudioStream" uid="uid://bysy8unuf6u4m" path="res://assets/audio/sfx/meow-3.wav" id="10_3gppr"]
+[ext_resource type="AudioStream" uid="uid://crqetwpcwj4sj" path="res://assets/audio/sfx/meow-6.wav" id="11_tdcod"]
+[ext_resource type="Texture2D" uid="uid://cyp136k2n8nv6" path="res://assets/textures/sprites/Meow.png" id="12_3gppr"]
 
 [node name="PlayerCharacter" unique_id=109084431 instance=ExtResource("1_pihnd")]
 collision_layer = 4
@@ -23,9 +28,15 @@ attack_sounds = Array[AudioStream]([ExtResource("3_o7di7"), ExtResource("4_nkyyi
 hurt_disable_input_duration = 0.5
 particle_spawn_offset = Vector2(0, -1)
 heal_particle = ExtResource("3_pjtas")
+meow_sounds = Array[AudioStream]([ExtResource("8_m73na"), ExtResource("9_tdcod"), ExtResource("10_3gppr"), ExtResource("11_tdcod")])
 
-[node name="AttackArea" parent="." index="0" unique_id=586517986]
+[node name="AttackArea" parent="InFront" parent_id_path=PackedInt32Array(101267693) index="0" unique_id=586517986]
 collision_mask = 8
+
+[node name="MeowSprite" type="Sprite2D" parent="InFront" parent_id_path=PackedInt32Array(101267693) index="1" unique_id=1016971187]
+unique_name_in_owner = true
+position = Vector2(0, -2)
+texture = ExtResource("12_3gppr")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1190068141]
 sprite_frames = ExtResource("8_nkyyi")
@@ -34,14 +45,23 @@ animation = &"dead"
 [node name="JumpAudio" type="AudioStreamPlayer" parent="." index="2" unique_id=1857376989]
 unique_name_in_owner = true
 stream = ExtResource("3_h6v2g")
+bus = &"SFX"
 
 [node name="HurtAudio" type="AudioStreamPlayer" parent="." index="3" unique_id=1034827951]
 unique_name_in_owner = true
 stream = ExtResource("4_ar13e")
+volume_db = -4.0
+bus = &"SFX"
 
 [node name="HealAudio" type="AudioStreamPlayer" parent="." index="4" unique_id=760502736]
 unique_name_in_owner = true
 stream = ExtResource("5_bmrvl")
+bus = &"SFX"
 
 [node name="AttackAudio" type="AudioStreamPlayer" parent="." index="5" unique_id=673269532]
 unique_name_in_owner = true
+bus = &"SFX"
+
+[node name="MeowAudio" type="AudioStreamPlayer" parent="." index="6" unique_id=1610148136]
+unique_name_in_owner = true
+bus = &"SFX"
