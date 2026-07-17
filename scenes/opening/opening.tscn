@@ -8,7 +8,7 @@ next_scene_path = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
 images = Array[Texture2D]([ExtResource("2_yhkvs")])
 
 [node name="ImagesContainer" parent="." index="0" unique_id=969970400]
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
