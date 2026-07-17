@@ -24,6 +24,8 @@ tile_set = ExtResource("3_sjavj")
 [node name="PlayerCharacter" parent="." unique_id=109084431 instance=ExtResource("4_77bc7")]
 position = Vector2(115, 129)
 
+[node name="Particles" type="Node2D" parent="." unique_id=291099175]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1520025701 node_paths=PackedStringArray("player")]
 position = Vector2(115, 148)
 script = ExtResource("5_4yf8q")

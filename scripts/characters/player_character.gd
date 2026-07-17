@@ -122,7 +122,7 @@ func on_pickup(pickup: Pickup) -> void:
 		var particle: Sprite2D = particle_scene.instantiate()
 		particle.set_position(global_position + particle_spawn_offset)
 		particle.texture = heal_particle
-		get_tree().current_scene.add_child(particle)
+		get_node("../Particles").add_child(particle)
 
 func _on_attack() -> void:
 	anim_sprite.play(ANIM_ATTACK)
