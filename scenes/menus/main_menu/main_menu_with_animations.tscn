@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bu5rg6scbsyqs" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_2k5l7"]
 [ext_resource type="Shader" uid="uid://djf7f6jvxg2cr" path="res://resources/shaders/palette_limiter.gdshader" id="5_ixa71"]
 [ext_resource type="Texture2D" uid="uid://gko8y81m1yg8" path="res://assets/textures/palettes/sweetie-16-1x.png" id="6_2k5l7"]
+[ext_resource type="SpriteFrames" uid="uid://vkxdw2p81bmy" path="res://resources/sprite_frames/sprite_frames_cat_grey.tres" id="7_2k5l7"]
+[ext_resource type="Script" uid="uid://uaf2sl0htwl8" path="res://scenes/menus/main_menu/main_menu_cat.gd" id="8_2k5l7"]
 
 [sub_resource type="Gradient" id="Gradient_ixa71"]
 offsets = PackedFloat32Array(0)
@@ -409,3 +411,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="8" unique_id=431322858]
+position = Vector2(60.000004, 87)
+scale = Vector2(2.078125, 2.0859375)
+sprite_frames = ExtResource("7_2k5l7")
+animation = &"intro"
+script = ExtResource("8_2k5l7")

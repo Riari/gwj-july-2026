@@ -38,6 +38,16 @@ func _ready() -> void:
 	super._ready()
 	meow_sprite.visible = false
 	meow_audio.finished.connect(on_meow_end)
+	_apply_selected_cat_skin()
+
+func _apply_selected_cat_skin() -> void:
+	var cat_key := GameState.get_selected_cat()
+	var frames_path := "res://resources/sprite_frames/sprite_frames_cat_%s.tres" % cat_key
+	var frames := load(frames_path) as SpriteFrames
+	if frames:
+		anim_sprite.sprite_frames = frames
+	else:
+		push_warning("Could not load cat sprite frames: ", frames_path)
 
 func _process(delta: float) -> void:
 	if attack_cooldown_timer > 0.0:
