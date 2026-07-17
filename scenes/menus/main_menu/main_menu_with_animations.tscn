@@ -353,7 +353,7 @@ theme_override_constants/margin_top = 10
 modulate = Color(1, 1, 1, 0)
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=334107926]
-text = "GWJ95"
+text = "Let Meowt"
 
 [node name="SubTitleMargin" parent="MenuContainer" parent_id_path=PackedInt32Array(785053879) index="1" unique_id=893436372]
 visible = false

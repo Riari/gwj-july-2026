@@ -17,17 +17,17 @@ script = ExtResource("1_b036r")
 [node name="Audio" parent="." unique_id=98013202 instance=ExtResource("4_bn2s3")]
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 metadata/_tab_index = 0
 
 [node name="Video" parent="." unique_id=1935308499 instance=ExtResource("5_6wkjv")]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 metadata/_tab_index = 1
