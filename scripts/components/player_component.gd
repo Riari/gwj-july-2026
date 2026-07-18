@@ -98,7 +98,7 @@ func _physics_process(_delta: float) -> void:
 					_movement.drop()
 				else:
 					_movement.jump()
-					_animation.call_deferred("play_anim",AnimationComponent.ANIM_JUMP)
+					_animation.call_deferred("play_anim", AnimationComponent.ANIM_JUMP)
 					jump_audio.play()
 	
 		var move_axis := Input.get_axis("move_left", "move_right")
