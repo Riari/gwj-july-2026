@@ -9,11 +9,16 @@ var selected: int = -1
 @onready var start := %StartButton
 
 var _highlight: StyleBoxFlat
+var _unselected: StyleBoxFlat
 
 
 func _ready() -> void:
+	_unselected = StyleBoxFlat.new()
+	_unselected.bg_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+	_unselected.set_border_width_all(2)
+	_unselected.border_color = Color(0.5, 0.5, 0.5, 1)
 	_highlight = StyleBoxFlat.new()
-	_highlight.bg_color = Color(0.1, 0.1, 0.1, 0.5)
+	_highlight.bg_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
 	_highlight.set_border_width_all(3)
 	_highlight.border_color = Color.YELLOW
 
@@ -35,7 +40,7 @@ func _on_preview_animation_finished(preview: AnimatedSprite2D) -> void:
 
 func _click(i: int) -> void:
 	if selected >= 0:
-		panels[selected].remove_theme_stylebox_override("panel")
+		panels[selected].add_theme_stylebox_override("panel", _unselected)
 		panels[selected].get_node("VBox/PreviewContainer/Preview").play("idle")
 
 	selected = i

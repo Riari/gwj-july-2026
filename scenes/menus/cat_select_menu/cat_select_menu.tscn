@@ -7,7 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://gsc1qib0rlya" path="res://resources/sprite_frames/sprite_frames_cat_black.tres" id="5_black"]
 
 [sub_resource type="StyleBoxFlat" id="style_unselected"]
-bg_color = Color(0.1, 0.1, 0.1, 0.5)
+bg_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -198,6 +198,8 @@ uppercase = true
 
 [node name="Button" type="Button" parent="CenterContainer/VBox/OptionsRow/CatBlack" unique_id=530920225]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
 mouse_default_cursor_shape = 2
 flat = true
 
