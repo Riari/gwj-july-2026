@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://csas8yh4reo3e" path="res://resources/tilesets/tileset_prototype.tres" id="3_sjavj"]
 [ext_resource type="PackedScene" uid="uid://df0rjap034euw" path="res://scenes/game_scene/characters/player_character.tscn" id="4_77bc7"]
 [ext_resource type="Script" uid="uid://bmly16rgj0kuu" path="res://scripts/player_camera.gd" id="5_4yf8q"]
+[ext_resource type="TileSet" uid="uid://dkwtnyvm5up6v" path="res://resources/tilesets/tileset_walls.tres" id="5_pnxco"]
 [ext_resource type="PackedScene" uid="uid://bjaxk1425stxv" path="res://scenes/game_scene/ui/in_game_ui.tscn" id="8_ut31b"]
 [ext_resource type="PackedScene" uid="uid://bx2pl338qapx8" path="res://scenes/game_scene/effects/post_processing.tscn" id="9_0lk0a"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="10_u4sdr"]
@@ -20,6 +21,9 @@ tile_set = ExtResource("3_fvfo3")
 
 [node name="FloorTileLayer" type="TileMapLayer" parent="." unique_id=718970014]
 tile_set = ExtResource("3_sjavj")
+
+[node name="WallTileLayer" type="TileMapLayer" parent="." unique_id=5284348]
+tile_set = ExtResource("5_pnxco")
 
 [node name="PlayerCharacter" parent="." unique_id=109084431 instance=ExtResource("4_77bc7")]
 position = Vector2(115, 129)
