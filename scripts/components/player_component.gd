@@ -108,9 +108,9 @@ func _physics_process(_delta: float) -> void:
 
 	var collision := _character.get_last_slide_collision()
 	if collision:
-		var collider := collision.get_collider()
-		if collider.is_in_group("ouch"):
-			_character.on_hit(collider, 1)
+		var shape := collision.get_collider_shape()
+		if shape != null and shape.is_in_group("ouch"):
+			_character.on_hit(collision.get_collider(), 1)
 
 func meow() -> void:
 	meow_audio.stream = meow_sounds.pick_random()

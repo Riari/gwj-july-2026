@@ -7,11 +7,15 @@
 @export var jump_through_disable_collision_duration: float = 0.2
 @export var knockback_vector := Vector2(600.0, 200.0)
 
+var _move_audio: AudioStreamPlayer2D
 var _animation: AnimationComponent
 var _jump_through_collision_disabled_timer: float = 0.0
 
 var _movement_disabled: bool = false
 var _last_move_x_direction: float = 0.0
+
+func _ready() -> void:
+	_move_audio = find_child("MoveAudio")
 
 func on_components_initialised(components: Array[Component]) -> void:
 	super.on_components_initialised(components)
@@ -33,12 +37,22 @@ func on_character_hurt(instigator: Character, _damage: int) -> void:
 func on_character_hurt_cooldown_end() -> void:
 	_movement_disabled = false
 
+func on_character_died(_instigator: Character) -> void:
+	if _move_audio != null:
+		_move_audio.stop()
+
 func move(direction: float) -> void:
-	if _movement_disabled: return
+	if !_is_enabled or _movement_disabled: return
+
 	var speed := move_speed if _character.is_on_floor() else move_speed * air_speed_multiplier
 	_character.velocity.x = direction * speed
 	if !is_zero_approx(direction):
 		_last_move_x_direction = direction
+		if _move_audio != null and _move_audio.is_playing() == false:
+			_move_audio.play()
+	else:
+		if _move_audio != null:
+			_move_audio.stop()
 
 func get_last_move_x_direction() -> float:
 	return _last_move_x_direction
@@ -69,5 +83,8 @@ func _physics_process(delta: float) -> void:
 		_character.velocity += _character.get_gravity() * delta
 
 	_character.velocity.x = clamp(_character.velocity.x, -max_speed, max_speed)
-	_character.velocity.y = clamp(_character.velocity.y, -max_speed, max_speed)
+	
+	if !_character.is_dead():
+		_character.velocity.y = clamp(_character.velocity.y, -max_speed, max_speed)
+
 	_character.move_and_slide()

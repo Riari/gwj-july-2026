@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://bgm7nvbtmd0j"]
 
+[ext_resource type="Script" uid="uid://6usbr2qs3bss" path="res://scripts/characters/character.gd" id="1_yax2j"]
+[ext_resource type="PackedScene" uid="uid://86fwo5og1f7f" path="res://scenes/game_scene/floating_text.tscn" id="2_ewf0i"]
 [ext_resource type="Texture2D" uid="uid://bbmi3s8g0s8e" path="res://assets/textures/sprites/Roomba.png" id="2_xwrfe"]
+[ext_resource type="Shader" uid="uid://co45xskun2d51" path="res://resources/shaders/invert.gdshader" id="3_02oto"]
+[ext_resource type="Script" uid="uid://bbehrvn5uemcq" path="res://scripts/components/ai_component.gd" id="4_og32v"]
+[ext_resource type="Script" uid="uid://debjs7k8d2g1a" path="res://scripts/components/movement_component.gd" id="5_djy6p"]
+[ext_resource type="Script" uid="uid://c6d8apfia6nyi" path="res://scripts/components/health_component.gd" id="6_djy6p"]
+[ext_resource type="Script" uid="uid://cgiyi02a0ca78" path="res://scripts/components/score_component.gd" id="7_2smyx"]
+[ext_resource type="AudioStream" uid="uid://b5n0h46mkvxyc" path="res://assets/audio/sfx/roomba.ogg" id="7_ifbct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsd86"]
 size = Vector2(26, 3)
@@ -8,16 +16,51 @@ size = Vector2(26, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwrfe"]
 size = Vector2(32.00006, 5.999907)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifbct"]
+shader = ExtResource("3_02oto")
+shader_parameter/flash_active = false
+
 [node name="AIRoomba" type="CharacterBody2D" unique_id=954255550]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_yax2j")
+floating_text_scene = ExtResource("2_ewf0i")
 
 [node name="SitsShape" type="CollisionShape2D" parent="." unique_id=1672480549]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_gsd86")
 
-[node name="OuchShape" type="CollisionShape2D" parent="." unique_id=1446152065]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446152065 groups=["ouch"]]
+unique_name_in_owner = true
 position = Vector2(-3.0517578e-05, 3.0002015)
 rotation = 3.101147e-05
 shape = SubResource("RectangleShape2D_xwrfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1686134836]
+material = SubResource("ShaderMaterial_ifbct")
 texture = ExtResource("2_xwrfe")
+
+[node name="AIComponent" type="Node2D" parent="." unique_id=1294812257]
+script = ExtResource("4_og32v")
+metadata/_custom_type_script = "uid://bbehrvn5uemcq"
+
+[node name="MovementComponent" type="Node2D" parent="." unique_id=430528976]
+script = ExtResource("5_djy6p")
+move_speed = 80.0
+max_speed = 100.0
+metadata/_custom_type_script = "uid://debjs7k8d2g1a"
+
+[node name="MoveAudio" type="AudioStreamPlayer2D" parent="MovementComponent" unique_id=1567232473]
+stream = ExtResource("7_ifbct")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1972391616 node_paths=PackedStringArray("hurt_sprite")]
+script = ExtResource("6_djy6p")
+hurt_sprite = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://c6d8apfia6nyi"
+
+[node name="ScoreComponent" type="Node2D" parent="." unique_id=1871545356]
+script = ExtResource("7_2smyx")
+points = 500
+metadata/_custom_type_script = "uid://cgiyi02a0ca78"

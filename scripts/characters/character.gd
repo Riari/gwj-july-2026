@@ -10,14 +10,11 @@ signal on_scored(score: int)
 @export var floating_text_scene: PackedScene
 @export var floating_text_spawn_offset: Vector2 = Vector2(0, 10)
 
-@onready var collision_shape: CollisionShape2D = %CollisionShape2D
-
-var _level: Level
 var _components: Array[Component]
 var _hurt_cooldown_timer: float = 0.0
+var _is_dead: bool = false
 
 func _ready() -> void:
-	print(get_tree().current_scene)
 	for node in get_children():
 		if node is Component:
 			node.init(self)
@@ -29,8 +26,6 @@ func _ready() -> void:
 	on_died.connect(_on_died)
 
 func _process(delta: float) -> void:
-	global_position = global_position.round()
-
 	if _hurt_cooldown_timer > 0.0:
 		_hurt_cooldown_timer -= delta
 		
@@ -49,13 +44,20 @@ func on_hit(instigator: Character, damage: int) -> void:
 	on_hurt.emit(instigator, damage)
 
 func _on_died(instigator: Character) -> void:
+	_is_dead = true
+
 	for component in _components:
 		component.on_character_died(instigator)
 
 		if component.should_disable_on_death():
 			component.disable()
 	
-	collision_shape.set_deferred("disabled", true)
+	for node in get_children():
+		if node is CollisionShape2D:
+			node.set_deferred("disabled", true)
+
+func is_dead() -> bool:
+	return _is_dead
 
 func on_pickup(pickup: Pickup) -> void:
 	for component in _components:
