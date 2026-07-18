@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dhwyq85ee12eb"]
+
+[ext_resource type="Texture2D" uid="uid://di0ou2qutktcf" path="res://assets/textures/sprites/Let Meowt portrait.png" id="1_t7rsm"]
+
+[node name="FramedArtLetMeowt" type="Sprite2D" unique_id=1404851959]
+texture = ExtResource("1_t7rsm")

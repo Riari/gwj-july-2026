@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dtgu6mqgs1fiq"]
+
+[ext_resource type="Texture2D" uid="uid://crgib6wgelr1l" path="res://assets/textures/sprites/Shadow portrait.png" id="1_kst7e"]
+
+[node name="FramedArtSilhouette" type="Sprite2D" unique_id=1286317063]
+texture = ExtResource("1_kst7e")
