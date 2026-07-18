@@ -44,6 +44,17 @@ func on_components_initialised(components: Array[Component]) -> void:
 		elif component is HealthComponent:
 			_health = component
 
+	_apply_selected_cat_skin()
+
+func _apply_selected_cat_skin() -> void:
+	var cat_key := GameState.get_selected_cat()
+	var frames_path := "res://resources/sprite_frames/sprite_frames_cat_%s.tres" % cat_key
+	var frames := load(frames_path) as SpriteFrames
+	if frames:
+		_animation.anim_sprite.sprite_frames = frames
+	else:
+		push_warning("Could not load cat sprite frames: ", frames_path)
+
 func on_character_hurt(_instigator: Character, _damage: int) -> void:
 	_input_disabled = true
 	hurt_audio.play()
@@ -79,7 +90,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if !_input_disabled:
 		if _character.is_on_floor():
-			if Input.is_action_pressed("move_down"):
+			if Input.is_action_pressed("move_down") and is_zero_approx(_character.velocity.x):
 				_animation.play_idle_anim(AnimationComponent.ANIM_LOAF)
 		
 			if Input.is_action_just_pressed("jump"):
