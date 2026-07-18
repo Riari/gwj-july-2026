@@ -35,7 +35,7 @@ func _on_preview_animation_finished(preview: AnimatedSprite2D) -> void:
 
 func _click(i: int) -> void:
 	if selected >= 0:
-		panels[selected].add_theme_stylebox_override("panel", null)
+		panels[selected].remove_theme_stylebox_override("panel")
 		panels[selected].get_node("VBox/PreviewContainer/Preview").play("idle")
 
 	selected = i
