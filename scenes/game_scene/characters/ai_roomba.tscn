@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bgm7nvbtmd0j"]
+
+[ext_resource type="Texture2D" uid="uid://bbmi3s8g0s8e" path="res://assets/textures/sprites/Roomba.png" id="2_xwrfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsd86"]
+size = Vector2(26, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwrfe"]
+size = Vector2(32.00006, 5.999907)
+
+[node name="AIRoomba" type="CharacterBody2D" unique_id=954255550]
+
+[node name="SitsShape" type="CollisionShape2D" parent="." unique_id=1672480549]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_gsd86")
+
+[node name="OuchShape" type="CollisionShape2D" parent="." unique_id=1446152065]
+position = Vector2(-3.0517578e-05, 3.0002015)
+rotation = 3.101147e-05
+shape = SubResource("RectangleShape2D_xwrfe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1686134836]
+texture = ExtResource("2_xwrfe")

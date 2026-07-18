@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://6usbr2qs3bss" path="res://scripts/characters/character.gd" id="1_np3sr"]
 [ext_resource type="SpriteFrames" uid="uid://vkxdw2p81bmy" path="res://resources/sprite_frames/sprite_frames_cat_grey.tres" id="1_wtrka"]
 [ext_resource type="Shader" uid="uid://co45xskun2d51" path="res://resources/shaders/invert.gdshader" id="2_qm5ft"]
-[ext_resource type="SpriteFrames" uid="uid://bbkpsvbt3mn06" path="res://resources/sprite_frames/sprite_frames_attack_1.tres" id="4_0p5t4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hbbf"]
-size = Vector2(22, 22)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rpncm"]
 shader = ExtResource("2_qm5ft")
@@ -19,26 +15,6 @@ size = Vector2(18, 10)
 collision_layer = 0
 collision_mask = 31
 script = ExtResource("1_np3sr")
-
-[node name="InFront" type="Node2D" parent="." unique_id=101267693]
-unique_name_in_owner = true
-position = Vector2(18, 19)
-
-[node name="AttackArea" type="Area2D" parent="InFront" unique_id=586517986]
-unique_name_in_owner = true
-collision_mask = 4
-
-[node name="AttackCollisionShape" type="CollisionShape2D" parent="InFront/AttackArea" unique_id=1037512252]
-unique_name_in_owner = true
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_8hbbf")
-
-[node name="AttackSprite" type="AnimatedSprite2D" parent="InFront/AttackArea" unique_id=571978518]
-unique_name_in_owner = true
-position = Vector2(0, 2)
-sprite_frames = ExtResource("4_0p5t4")
-frame = 6
-frame_progress = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1190068141]
 unique_name_in_owner = true

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://86fwo5og1f7f"]
+
+[ext_resource type="Script" uid="uid://dyjvswaaty3sv" path="res://scripts/floating_text.gd" id="1_sktyo"]
+
+[node name="FloatingText" type="Node2D" unique_id=1379033676]
+script = ExtResource("1_sktyo")
+
+[node name="LabelShadow" type="Label" parent="." unique_id=1174276806]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.06960405, 0.14927098, 0.2755138, 1)
+text = "+10000"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=701471550]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 20.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.27119508, 0.88032407, 0, 1)
+text = "+10000"
+horizontal_alignment = 1

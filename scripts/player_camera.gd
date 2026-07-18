@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		is_centring_x = true
 
 	if is_centring_x:
-		new_position.x = lerp(global_position.x, target_position.x, follow_speed * delta)
+		new_position.x = lerp(roundf(global_position.x), roundf(target_position.x), follow_speed * delta)
 
 		if abs(new_position.x - target_position.x) <= centre_epsilon:
 			new_position.x = target_position.x
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		is_centring_y = true
 
 	if is_centring_y:
-		new_position.y = lerp(global_position.y, target_position.y, follow_speed * delta)
+		new_position.y = lerp(roundf(global_position.y), roundf(target_position.y), follow_speed * delta)
 
 		if abs(new_position.y - target_position.y) <= centre_epsilon:
 			new_position.y = target_position.y
@@ -41,5 +41,5 @@ func _physics_process(delta: float) -> void:
 
 	global_position = new_position.round()
 
-func _on_player_character_died() -> void:
+func _on_player_died(instigator: Character) -> void:
 	is_following = false

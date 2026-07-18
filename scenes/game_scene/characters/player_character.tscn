@@ -1,67 +1,113 @@
-[gd_scene format=3 uid="uid://df0rjap034euw"]
+[gd_scene format=3 uid="uid://7orwifs3ujew"]
 
 [ext_resource type="PackedScene" uid="uid://iwhiqytys7vs" path="res://scenes/game_scene/characters/character_base.tscn" id="1_pihnd"]
-[ext_resource type="Script" uid="uid://cs28s7k3ecj8a" path="res://scripts/characters/player_character.gd" id="2_oiidq"]
-[ext_resource type="AudioStream" uid="uid://bi4v6cjk0syh8" path="res://assets/audio/sfx/jump-1.ogg" id="3_h6v2g"]
-[ext_resource type="AudioStream" uid="uid://c88lw3j6h7h2y" path="res://assets/audio/sfx/attack-1.wav" id="3_o7di7"]
-[ext_resource type="Texture2D" uid="uid://o4l13kxpruyb" path="res://assets/textures/sprites/Heart.png" id="3_pjtas"]
-[ext_resource type="AudioStream" uid="uid://c5djq4oylaynx" path="res://assets/audio/sfx/hurt-1.wav" id="4_ar13e"]
-[ext_resource type="AudioStream" uid="uid://c1jhfl6mtrugk" path="res://assets/audio/sfx/attack-2.wav" id="4_nkyyi"]
-[ext_resource type="AudioStream" uid="uid://cwflb3u8yerv0" path="res://assets/audio/sfx/powerup-2.wav" id="5_bmrvl"]
-[ext_resource type="AudioStream" uid="uid://dbq02mdvk1hbv" path="res://assets/audio/sfx/attack-3.wav" id="5_dh8nh"]
-[ext_resource type="AudioStream" uid="uid://clca8kara6no7" path="res://assets/audio/sfx/attack-4.wav" id="6_2rnbg"]
-[ext_resource type="AudioStream" uid="uid://cregtsuhntt55" path="res://assets/audio/sfx/meow-1.wav" id="8_m73na"]
-[ext_resource type="SpriteFrames" uid="uid://gsc1qib0rlya" path="res://resources/sprite_frames/sprite_frames_cat_black.tres" id="8_nkyyi"]
-[ext_resource type="AudioStream" uid="uid://dbmcmdlh241s0" path="res://assets/audio/sfx/meow-2.wav" id="9_tdcod"]
-[ext_resource type="AudioStream" uid="uid://bysy8unuf6u4m" path="res://assets/audio/sfx/meow-3.wav" id="10_3gppr"]
-[ext_resource type="AudioStream" uid="uid://crqetwpcwj4sj" path="res://assets/audio/sfx/meow-6.wav" id="11_tdcod"]
-[ext_resource type="Texture2D" uid="uid://cyp136k2n8nv6" path="res://assets/textures/sprites/Meow.png" id="12_3gppr"]
+[ext_resource type="PackedScene" uid="uid://86fwo5og1f7f" path="res://scenes/game_scene/floating_text.tscn" id="2_hllgo"]
+[ext_resource type="Texture2D" uid="uid://cyp136k2n8nv6" path="res://assets/textures/sprites/Meow.png" id="2_nrqdp"]
+[ext_resource type="SpriteFrames" uid="uid://gsc1qib0rlya" path="res://resources/sprite_frames/sprite_frames_cat_black.tres" id="2_v1525"]
+[ext_resource type="Script" uid="uid://c6d8apfia6nyi" path="res://scripts/components/health_component.gd" id="2_ysfk6"]
+[ext_resource type="Script" uid="uid://cg1h1o5hrhbqr" path="res://scripts/components/player_component.gd" id="3_pjtas"]
+[ext_resource type="AudioStream" uid="uid://bi4v6cjk0syh8" path="res://assets/audio/sfx/jump-1.ogg" id="4_nrqdp"]
+[ext_resource type="AudioStream" uid="uid://cregtsuhntt55" path="res://assets/audio/sfx/meow-1.wav" id="5_2rnbg"]
+[ext_resource type="AudioStream" uid="uid://c5djq4oylaynx" path="res://assets/audio/sfx/hurt-1.wav" id="5_hhgjo"]
+[ext_resource type="Texture2D" uid="uid://o4l13kxpruyb" path="res://assets/textures/sprites/Heart.png" id="5_m73na"]
+[ext_resource type="AudioStream" uid="uid://dbmcmdlh241s0" path="res://assets/audio/sfx/meow-2.wav" id="6_m73na"]
+[ext_resource type="AudioStream" uid="uid://cwflb3u8yerv0" path="res://assets/audio/sfx/powerup-2.wav" id="6_o46bc"]
+[ext_resource type="AudioStream" uid="uid://bysy8unuf6u4m" path="res://assets/audio/sfx/meow-3.wav" id="7_tdcod"]
+[ext_resource type="AudioStream" uid="uid://cw6g10p0xuvc4" path="res://assets/audio/sfx/meow-4.wav" id="8_3gppr"]
+[ext_resource type="AudioStream" uid="uid://7ghgq7kemvul" path="res://assets/audio/sfx/meow-5.wav" id="9_v1525"]
+[ext_resource type="AudioStream" uid="uid://crqetwpcwj4sj" path="res://assets/audio/sfx/meow-6.wav" id="10_ajtht"]
+[ext_resource type="AudioStream" uid="uid://c88lw3j6h7h2y" path="res://assets/audio/sfx/attack-1.wav" id="12_ak4dc"]
+[ext_resource type="AudioStream" uid="uid://c1jhfl6mtrugk" path="res://assets/audio/sfx/attack-2.wav" id="13_amlbl"]
+[ext_resource type="AudioStream" uid="uid://dbq02mdvk1hbv" path="res://assets/audio/sfx/attack-3.wav" id="14_lnb0k"]
+[ext_resource type="Script" uid="uid://debjs7k8d2g1a" path="res://scripts/components/movement_component.gd" id="15_3gppr"]
+[ext_resource type="AudioStream" uid="uid://clca8kara6no7" path="res://assets/audio/sfx/attack-4.wav" id="15_hllgo"]
+[ext_resource type="Script" uid="uid://bfcxhmscd2je0" path="res://scripts/components/animation_component.gd" id="15_tdcod"]
+[ext_resource type="Script" uid="uid://bxmo77pxtrb2v" path="res://scripts/components/attack_component.gd" id="18_ajtht"]
+[ext_resource type="SpriteFrames" uid="uid://bbkpsvbt3mn06" path="res://resources/sprite_frames/sprite_frames_attack_1.tres" id="23_amlbl"]
+[ext_resource type="AudioStream" uid="uid://dgp3q1vdediir" path="res://assets/audio/sfx/score-4.ogg" id="24_lnb0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnb0k"]
+size = Vector2(22, 22)
 
 [node name="PlayerCharacter" unique_id=109084431 instance=ExtResource("1_pihnd")]
 collision_layer = 4
-script = ExtResource("2_oiidq")
-move_speed = 100.0
-jump_speed = -400.0
-jump_through_disable_collision_duration = 0.2
-attack_cooldown = 0.25
-attack_sounds = Array[AudioStream]([ExtResource("3_o7di7"), ExtResource("4_nkyyi"), ExtResource("5_dh8nh"), ExtResource("6_2rnbg")])
-hurt_disable_input_duration = 0.5
-particle_spawn_offset = Vector2(0, -1)
-heal_particle = ExtResource("3_pjtas")
-meow_sounds = Array[AudioStream]([ExtResource("8_m73na"), ExtResource("9_tdcod"), ExtResource("10_3gppr"), ExtResource("11_tdcod")])
+floating_text_scene = ExtResource("2_hllgo")
 
-[node name="AttackArea" parent="InFront" parent_id_path=PackedInt32Array(101267693) index="0" unique_id=586517986]
-collision_mask = 8
-
-[node name="MeowSprite" type="Sprite2D" parent="InFront" parent_id_path=PackedInt32Array(101267693) index="1" unique_id=1016971187]
+[node name="HealthComponent" type="Node2D" parent="." index="0" unique_id=36887452 node_paths=PackedStringArray("hurt_sprite")]
 unique_name_in_owner = true
-position = Vector2(0, -2)
-texture = ExtResource("12_3gppr")
+script = ExtResource("2_ysfk6")
+hurt_sprite = NodePath("../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://c6d8apfia6nyi"
 
-[node name="AnimatedSprite2D" parent="." index="1" unique_id=1190068141]
-sprite_frames = ExtResource("8_nkyyi")
-animation = &"dead"
+[node name="PlayerComponent" type="Node2D" parent="." index="1" unique_id=1749024656]
+script = ExtResource("3_pjtas")
+heal_particle = ExtResource("5_m73na")
+meow_sounds = Array[AudioStream]([ExtResource("5_2rnbg"), ExtResource("6_m73na"), ExtResource("7_tdcod"), ExtResource("8_3gppr"), ExtResource("9_v1525"), ExtResource("10_ajtht")])
+attack_sounds = Array[AudioStream]([ExtResource("12_ak4dc"), ExtResource("13_amlbl"), ExtResource("14_lnb0k"), ExtResource("15_hllgo")])
+metadata/_custom_type_script = "uid://cg1h1o5hrhbqr"
 
-[node name="JumpAudio" type="AudioStreamPlayer" parent="." index="2" unique_id=1857376989]
+[node name="JumpAudio" type="AudioStreamPlayer" parent="PlayerComponent" index="0" unique_id=1958672887]
 unique_name_in_owner = true
-stream = ExtResource("3_h6v2g")
+stream = ExtResource("4_nrqdp")
 bus = &"SFX"
 
-[node name="HurtAudio" type="AudioStreamPlayer" parent="." index="3" unique_id=1034827951]
+[node name="HurtAudio" type="AudioStreamPlayer" parent="PlayerComponent" index="1" unique_id=1137924084]
 unique_name_in_owner = true
-stream = ExtResource("4_ar13e")
+stream = ExtResource("5_hhgjo")
 volume_db = -4.0
 bus = &"SFX"
 
-[node name="HealAudio" type="AudioStreamPlayer" parent="." index="4" unique_id=760502736]
+[node name="HealAudio" type="AudioStreamPlayer" parent="PlayerComponent" index="2" unique_id=1789304148]
 unique_name_in_owner = true
-stream = ExtResource("5_bmrvl")
+stream = ExtResource("6_o46bc")
 bus = &"SFX"
 
-[node name="AttackAudio" type="AudioStreamPlayer" parent="." index="5" unique_id=673269532]
+[node name="AttackAudio" type="AudioStreamPlayer" parent="PlayerComponent" index="3" unique_id=1480904008]
 unique_name_in_owner = true
 bus = &"SFX"
 
-[node name="MeowAudio" type="AudioStreamPlayer" parent="." index="6" unique_id=1610148136]
+[node name="MeowAudio" type="AudioStreamPlayer" parent="PlayerComponent" index="4" unique_id=615775451]
 unique_name_in_owner = true
+bus = &"SFX"
+
+[node name="MeowSprite" type="Sprite2D" parent="PlayerComponent" index="5" unique_id=357856969]
+unique_name_in_owner = true
+position = Vector2(18, 17)
+texture = ExtResource("2_nrqdp")
+
+[node name="MovementComponent" type="Node2D" parent="." index="2" unique_id=1724588166]
+script = ExtResource("15_3gppr")
+metadata/_custom_type_script = "uid://debjs7k8d2g1a"
+
+[node name="AnimationComponent" type="Node2D" parent="." index="3" unique_id=593883385]
+script = ExtResource("15_tdcod")
+metadata/_custom_type_script = "uid://bfcxhmscd2je0"
+
+[node name="AttackComponent" type="Node2D" parent="." index="4" unique_id=406057942]
+script = ExtResource("18_ajtht")
+metadata/_custom_type_script = "uid://bxmo77pxtrb2v"
+
+[node name="AttackArea" type="Area2D" parent="AttackComponent" index="0" unique_id=1339529626]
+unique_name_in_owner = true
+position = Vector2(16, 19)
+collision_mask = 8
+
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackComponent/AttackArea" index="0" unique_id=871882159]
+unique_name_in_owner = true
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_lnb0k")
+
+[node name="AttackSprite" type="AnimatedSprite2D" parent="AttackComponent/AttackArea" index="1" unique_id=2033158475]
+unique_name_in_owner = true
+position = Vector2(0, 2)
+sprite_frames = ExtResource("23_amlbl")
+frame = 6
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D" parent="." index="5" unique_id=1190068141]
+sprite_frames = ExtResource("2_v1525")
+
+[node name="ScoreAudio" type="AudioStreamPlayer" parent="." index="7" unique_id=140097154]
+unique_name_in_owner = true
+stream = ExtResource("24_lnb0k")
 bus = &"SFX"
