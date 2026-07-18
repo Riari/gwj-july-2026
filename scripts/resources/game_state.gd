@@ -6,6 +6,8 @@ const FILE_PATH: String = "res://scripts/resources/game_state.gd"
 @export var score: int
 @export var high_score: int
 
+@export var selected_cat: String = "grey"
+
 static func has_game_state() -> bool:
 	return GlobalState.has_state(STATE_NAME)
 
@@ -42,4 +44,13 @@ static func set_score(value: int) -> void:
 static func set_high_score(value: int) -> void:
 	var game_state := get_or_create_state()
 	game_state.high_score = value
+	GlobalState.save()
+
+static func get_selected_cat() -> String:
+	var game_state := get_or_create_state()
+	return game_state.selected_cat
+
+static func set_selected_cat(value: String) -> void:
+	var game_state := get_or_create_state()
+	game_state.selected_cat = value
 	GlobalState.save()

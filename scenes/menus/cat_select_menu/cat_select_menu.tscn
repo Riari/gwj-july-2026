@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://bgj5n2uf3ykrc"]
+
+[ext_resource type="Script" uid="uid://cekmtlj5ofnrx" path="res://scenes/menus/cat_select_menu/cat_select_menu.gd" id="1_myscript"]
+[ext_resource type="FontFile" uid="uid://b1e0edmk46qwa" path="res://assets/fonts/ChiKareGo.ttf" id="2_font"]
+[ext_resource type="SpriteFrames" uid="uid://vkxdw2p81bmy" path="res://resources/sprite_frames/sprite_frames_cat_grey.tres" id="3_grey"]
+[ext_resource type="SpriteFrames" uid="uid://dlrm1imvkrauv" path="res://resources/sprite_frames/sprite_frames_cat_orange.tres" id="4_orange"]
+[ext_resource type="SpriteFrames" uid="uid://gsc1qib0rlya" path="res://resources/sprite_frames/sprite_frames_cat_black.tres" id="5_black"]
+
+[sub_resource type="StyleBoxFlat" id="style_unselected"]
+bg_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="style_button_normal"]
+bg_color = Color(0.2, 0.2, 0.2, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="style_button_pressed"]
+bg_color = Color(0.4, 0.4, 0.2, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="style_button_hover"]
+bg_color = Color(0.3, 0.3, 0.3, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 0, 1)
+
+[node name="CatSelectMenu" type="Control" unique_id=235286728]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myscript")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2047465374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2085284804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=212811152]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="CenterContainer/VBox" unique_id=82561784]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 28
+text = "PICK A CAT"
+horizontal_alignment = 1
+
+[node name="OptionsRow" type="HBoxContainer" parent="CenterContainer/VBox" unique_id=485876049]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+
+[node name="CatGrey" type="PanelContainer" parent="CenterContainer/VBox/OptionsRow" unique_id=1127133120]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("style_unselected")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/VBox/OptionsRow/CatGrey" unique_id=1254099997]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PreviewContainer" type="CenterContainer" parent="CenterContainer/VBox/OptionsRow/CatGrey/VBox" unique_id=945470688]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Preview" type="AnimatedSprite2D" parent="CenterContainer/VBox/OptionsRow/CatGrey/VBox/PreviewContainer" unique_id=632807747]
+position = Vector2(0, 21)
+sprite_frames = ExtResource("3_grey")
+animation = &"play"
+
+[node name="Name" type="Label" parent="CenterContainer/VBox/OptionsRow/CatGrey/VBox" unique_id=140299000]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Suzy"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="CenterContainer/VBox/OptionsRow/CatGrey" unique_id=2090557688]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="CatOrange" type="PanelContainer" parent="CenterContainer/VBox/OptionsRow" unique_id=167178237]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("style_unselected")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/VBox/OptionsRow/CatOrange" unique_id=836305853]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PreviewContainer" type="CenterContainer" parent="CenterContainer/VBox/OptionsRow/CatOrange/VBox" unique_id=1203216925]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Preview" type="AnimatedSprite2D" parent="CenterContainer/VBox/OptionsRow/CatOrange/VBox/PreviewContainer" unique_id=620316926]
+position = Vector2(0, 20)
+sprite_frames = ExtResource("4_orange")
+animation = &"run"
+
+[node name="Name" type="Label" parent="CenterContainer/VBox/OptionsRow/CatOrange/VBox" unique_id=859372231]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Bob"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="CenterContainer/VBox/OptionsRow/CatOrange" unique_id=72718984]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="CatBlack" type="PanelContainer" parent="CenterContainer/VBox/OptionsRow" unique_id=2131849688]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("style_unselected")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/VBox/OptionsRow/CatBlack" unique_id=1091551254]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PreviewContainer" type="CenterContainer" parent="CenterContainer/VBox/OptionsRow/CatBlack/VBox" unique_id=227165781]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Preview" type="AnimatedSprite2D" parent="CenterContainer/VBox/OptionsRow/CatBlack/VBox/PreviewContainer" unique_id=710210891]
+position = Vector2(0, 25)
+sprite_frames = ExtResource("5_black")
+animation = &"jump"
+
+[node name="Name" type="Label" parent="CenterContainer/VBox/OptionsRow/CatBlack/VBox" unique_id=755946321]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Nat"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="CenterContainer/VBox/OptionsRow/CatBlack" unique_id=530920225]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="ButtonRow" type="HBoxContainer" parent="CenterContainer/VBox" unique_id=2008344896]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBox/ButtonRow" unique_id=611658594]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("style_button_normal")
+theme_override_styles/pressed = SubResource("style_button_pressed")
+theme_override_styles/hover = SubResource("style_button_hover")
+text = "Back"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBox/ButtonRow" unique_id=1039781294]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("style_button_normal")
+theme_override_styles/pressed = SubResource("style_button_pressed")
+theme_override_styles/hover = SubResource("style_button_hover")
+disabled = true
+text = "Start"
+
+[connection signal="pressed" from="CenterContainer/VBox/ButtonRow/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBox/ButtonRow/StartButton" to="." method="_on_start_button_pressed"]
