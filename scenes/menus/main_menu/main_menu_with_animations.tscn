@@ -1,13 +1,16 @@
-[gd_scene format=3 uid="uid://bj14p3aa7wm8f"]
+[gd_scene format=4 uid="uid://bj14p3aa7wm8f"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
 [ext_resource type="Script" uid="uid://6kkgt00vvrar" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
 [ext_resource type="PackedScene" uid="uid://b8doiervc4q6d" path="res://scenes/windows/main_menu_options_window.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://bu5rg6scbsyqs" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_2k5l7"]
+[ext_resource type="Shader" uid="uid://dhiqu1kjsaui3" path="res://resources/shaders/color_mix.gdshader" id="5_dhrx6"]
 [ext_resource type="Shader" uid="uid://djf7f6jvxg2cr" path="res://resources/shaders/palette_limiter.gdshader" id="5_ixa71"]
 [ext_resource type="Texture2D" uid="uid://gko8y81m1yg8" path="res://assets/textures/palettes/sweetie-16-1x.png" id="6_2k5l7"]
 [ext_resource type="SpriteFrames" uid="uid://vkxdw2p81bmy" path="res://resources/sprite_frames/sprite_frames_cat_grey.tres" id="7_2k5l7"]
+[ext_resource type="TileSet" uid="uid://bb73p777p8p2y" path="res://resources/tilesets/tileset_wallpaper.tres" id="7_6xh1d"]
 [ext_resource type="Script" uid="uid://uaf2sl0htwl8" path="res://scenes/menus/main_menu/main_menu_cat.gd" id="8_2k5l7"]
+[ext_resource type="AudioStream" uid="uid://be4jmqjyjujb5" path="res://assets/audio/music/track-3.ogg" id="11_xkrf4"]
 
 [sub_resource type="Gradient" id="Gradient_ixa71"]
 offsets = PackedFloat32Array(0)
@@ -16,6 +19,10 @@ colors = PackedColorArray(0.93529564, 0.56866926, 0.46302778, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_oyxjp"]
 gradient = SubResource("Gradient_ixa71")
 fill_from = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkrf4"]
+shader = ExtResource("5_dhrx6")
+shader_parameter/mix_color = Color(0.8174112, 0.39137015, 0.32152367, 1)
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -337,13 +344,19 @@ options_packed_scene = ExtResource("3_ixa71")
 credits_packed_scene = ExtResource("4_2k5l7")
 
 [node name="BackgroundTextureRect" parent="." index="0" unique_id=1025367827]
+visible = false
 texture = SubResource("GradientTexture2D_oyxjp")
 expand_mode = 4
 
-[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1242136020]
+[node name="TileMapLayer" type="TileMapLayer" parent="." index="1" unique_id=639243234]
+material = SubResource("ShaderMaterial_xkrf4")
+tile_map_data = PackedByteArray("AAD//wAAAgAIAAYAAAD//wEAAgAIAAYAAAD//wIAAgAIAAYAAAD//wMAAgAIAAYAAAD//wQAAgAIAAYAAAD//wUAAgAIAAYAAAD//wYAAgAIAAYAAAD//wcAAgAIAAYAAAAAAAAAAgAIAAYAAAAAAAEAAgAIAAYAAAAAAAIAAgAIAAYAAAAAAAMAAgAIAAYAAAAAAAQAAgAIAAYAAAAAAAUAAgAIAAYAAAAAAAYAAgAIAAYAAAAAAAcAAgAIAAYAAAABAAAAAgAIAAYAAAABAAEAAgAIAAYAAAABAAIAAgAIAAYAAAABAAMAAgAIAAYAAAABAAQAAgAIAAYAAAABAAUAAgAIAAYAAAABAAYAAgAIAAYAAAABAAcAAgAIAAYAAAACAAAAAgAIAAYAAAACAAEAAgAIAAYAAAACAAIAAgAIAAYAAAACAAMAAgAIAAYAAAACAAQAAgAIAAYAAAACAAUAAgAIAAYAAAACAAYAAgAIAAYAAAACAAcAAgAIAAYAAAADAAAAAgAIAAYAAAADAAEAAgAIAAYAAAADAAIAAgAIAAYAAAADAAMAAgAIAAYAAAADAAQAAgAIAAYAAAADAAUAAgAIAAYAAAADAAYAAgAIAAYAAAADAAcAAgAIAAYAAAAEAAAAAgAIAAYAAAAEAAEAAgAIAAYAAAAEAAIAAgAIAAYAAAAEAAMAAgAIAAYAAAAEAAQAAgAIAAYAAAAEAAUAAgAIAAYAAAAEAAYAAgAIAAYAAAAEAAcAAgAIAAYAAAAFAAAAAgAIAAYAAAAFAAEAAgAIAAYAAAAFAAIAAgAIAAYAAAAFAAMAAgAIAAYAAAAFAAQAAgAIAAYAAAAFAAUAAgAIAAYAAAAFAAYAAgAIAAYAAAAFAAcAAgAIAAYAAAAGAAAAAgAIAAYAAAAGAAEAAgAIAAYAAAAGAAIAAgAIAAYAAAAGAAMAAgAIAAYAAAAGAAQAAgAIAAYAAAAGAAUAAgAIAAYAAAAGAAYAAgAIAAYAAAAGAAcAAgAIAAYAAAAHAAAAAgAIAAYAAAAHAAEAAgAIAAYAAAAHAAIAAgAIAAYAAAAHAAMAAgAIAAYAAAAHAAQAAgAIAAYAAAAHAAUAAgAIAAYAAAAHAAYAAgAIAAYAAAAHAAcAAgAIAAYAAAAIAAAAAgAIAAYAAAAIAAEAAgAIAAYAAAAIAAIAAgAIAAYAAAAIAAMAAgAIAAYAAAAIAAQAAgAIAAYAAAAIAAUAAgAIAAYAAAAIAAYAAgAIAAYAAAAIAAcAAgAIAAYAAAAJAAAAAgAIAAYAAAAJAAEAAgAIAAYAAAAJAAIAAgAIAAYAAAAJAAMAAgAIAAYAAAAJAAQAAgAIAAYAAAAJAAUAAgAIAAYAAAAJAAYAAgAIAAYAAAAJAAcAAgAIAAYAAAAKAAAAAgAIAAYAAAAKAAEAAgAIAAYAAAAKAAIAAgAIAAYAAAAKAAMAAgAIAAYAAAAKAAQAAgAIAAYAAAAKAAUAAgAIAAYAAAAKAAYAAgAIAAYAAAAKAAcAAgAIAAYAAAALAAAAAgAIAAYAAAALAAEAAgAIAAYAAAALAAIAAgAIAAYAAAALAAMAAgAIAAYAAAALAAQAAgAIAAYAAAALAAUAAgAIAAYAAAALAAYAAgAIAAYAAAALAAcAAgAIAAYAAAAMAAAAAgAIAAYAAAAMAAEAAgAIAAYAAAAMAAIAAgAIAAYAAAAMAAMAAgAIAAYAAAAMAAQAAgAIAAYAAAAMAAUAAgAIAAYAAAAMAAYAAgAIAAYAAAAMAAcAAgAIAAYAAAANAAAAAgAIAAYAAAANAAEAAgAIAAYAAAANAAIAAgAIAAYAAAANAAMAAgAIAAYAAAANAAQAAgAIAAYAAAANAAUAAgAIAAYAAAANAAYAAgAIAAYAAAANAAcAAgAIAAYAAAAOAAAAAgAIAAYAAAAOAAEAAgAIAAYAAAAOAAIAAgAIAAYAAAAOAAMAAgAIAAYAAAAOAAQAAgAIAAYAAAAOAAUAAgAIAAYAAAAOAAYAAgAIAAYAAAAOAAcAAgAIAAYAAAD7//z/AgAIAAYAAAD7//3/AgAIAAYAAAD7//7/AgAIAAYAAAD7////AgAIAAYAAAD7/wAAAgAIAAYAAAD7/wEAAgAIAAYAAAD7/wIAAgAIAAYAAAD7/wMAAgAIAAYAAAD7/wQAAgAIAAYAAAD7/wUAAgAIAAYAAAD7/wYAAgAIAAYAAAD7/wcAAgAIAAYAAAD7/wgAAgAIAAYAAAD8//z/AgAIAAYAAAD8//3/AgAIAAYAAAD8//7/AgAIAAYAAAD8////AgAIAAYAAAD8/wAAAgAIAAYAAAD8/wEAAgAIAAYAAAD8/wIAAgAIAAYAAAD8/wMAAgAIAAYAAAD8/wQAAgAIAAYAAAD8/wUAAgAIAAYAAAD8/wYAAgAIAAYAAAD8/wcAAgAIAAYAAAD8/wgAAgAIAAYAAAD9//z/AgAIAAYAAAD9//3/AgAIAAYAAAD9//7/AgAIAAYAAAD9////AgAIAAYAAAD9/wAAAgAIAAYAAAD9/wEAAgAIAAYAAAD9/wIAAgAIAAYAAAD9/wMAAgAIAAYAAAD9/wQAAgAIAAYAAAD9/wUAAgAIAAYAAAD9/wYAAgAIAAYAAAD9/wcAAgAIAAYAAAD9/wgAAgAIAAYAAAD+//z/AgAIAAYAAAD+//3/AgAIAAYAAAD+//7/AgAIAAYAAAD+////AgAIAAYAAAD+/wAAAgAIAAYAAAD+/wEAAgAIAAYAAAD+/wIAAgAIAAYAAAD+/wMAAgAIAAYAAAD+/wQAAgAIAAYAAAD+/wUAAgAIAAYAAAD+/wYAAgAIAAYAAAD+/wcAAgAIAAYAAAD+/wgAAgAIAAYAAAD///z/AgAIAAYAAAD///3/AgAIAAYAAAD///7/AgAIAAYAAAD/////AgAIAAYAAAD//wgAAgAIAAYAAAAAAPz/AgAIAAYAAAAAAP3/AgAIAAYAAAAAAP7/AgAIAAYAAAAAAP//AgAIAAYAAAAAAAgAAgAIAAYAAAABAPz/AgAIAAYAAAABAP3/AgAIAAYAAAABAP7/AgAIAAYAAAABAP//AgAIAAYAAAABAAgAAgAIAAYAAAACAPz/AgAIAAYAAAACAP3/AgAIAAYAAAACAP7/AgAIAAYAAAACAP//AgAIAAYAAAACAAgAAgAIAAYAAAADAPz/AgAIAAYAAAADAP3/AgAIAAYAAAADAP7/AgAIAAYAAAADAP//AgAIAAYAAAADAAgAAgAIAAYAAAAEAPz/AgAIAAYAAAAEAP3/AgAIAAYAAAAEAP7/AgAIAAYAAAAEAP//AgAIAAYAAAAEAAgAAgAIAAYAAAAFAPz/AgAIAAYAAAAFAP3/AgAIAAYAAAAFAP7/AgAIAAYAAAAFAP//AgAIAAYAAAAFAAgAAgAIAAYAAAAGAPz/AgAIAAYAAAAGAP3/AgAIAAYAAAAGAP7/AgAIAAYAAAAGAP//AgAIAAYAAAAGAAgAAgAIAAYAAAAHAPz/AgAIAAYAAAAHAP3/AgAIAAYAAAAHAP7/AgAIAAYAAAAHAP//AgAIAAYAAAAHAAgAAgAIAAYAAAAIAPz/AgAIAAYAAAAIAP3/AgAIAAYAAAAIAP7/AgAIAAYAAAAIAP//AgAIAAYAAAAIAAgAAgAIAAYAAAAJAPz/AgAIAAYAAAAJAP3/AgAIAAYAAAAJAP7/AgAIAAYAAAAJAP//AgAIAAYAAAAJAAgAAgAIAAYAAAAKAPz/AgAIAAYAAAAKAP3/AgAIAAYAAAAKAP7/AgAIAAYAAAAKAP//AgAIAAYAAAAKAAgAAgAIAAYAAAALAPz/AgAIAAYAAAALAP3/AgAIAAYAAAALAP7/AgAIAAYAAAALAP//AgAIAAYAAAALAAgAAgAIAAYAAAAMAPz/AgAIAAYAAAAMAP3/AgAIAAYAAAAMAP7/AgAIAAYAAAAMAP//AgAIAAYAAAAMAAgAAgAIAAYAAAANAPz/AgAIAAYAAAANAP3/AgAIAAYAAAANAP7/AgAIAAYAAAANAP//AgAIAAYAAAANAAgAAgAIAAYAAAAOAPz/AgAIAAYAAAAOAP3/AgAIAAYAAAAOAP7/AgAIAAYAAAAOAP//AgAIAAYAAAAOAAgAAgAIAAYAAAAPAPz/AgAIAAYAAAAPAP3/AgAIAAYAAAAPAP7/AgAIAAYAAAAPAP//AgAIAAYAAAAPAAAAAgAIAAYAAAAPAAEAAgAIAAYAAAAPAAIAAgAIAAYAAAAPAAMAAgAIAAYAAAAPAAQAAgAIAAYAAAAPAAUAAgAIAAYAAAAPAAYAAgAIAAYAAAAPAAcAAgAIAAYAAAAPAAgAAgAIAAYAAAD7/wkAAgAIAAYAAAD8/wkAAgAIAAYAAAD9/wkAAgAIAAYAAAD+/wkAAgAIAAYAAAD//wkAAgAIAAYAAAAAAAkAAgAIAAYAAAABAAkAAgAIAAYAAAACAAkAAgAIAAYAAAADAAkAAgAIAAYAAAAEAAkAAgAIAAYAAAAFAAkAAgAIAAYAAAAGAAkAAgAIAAYAAAAHAAkAAgAIAAYAAAAIAAkAAgAIAAYAAAAJAAkAAgAIAAYAAAAKAAkAAgAIAAYAAAALAAkAAgAIAAYAAAAMAAkAAgAIAAYAAAANAAkAAgAIAAYAAAAOAAkAAgAIAAYAAAAPAAkAAgAIAAYAAAAQAPz/AgAIAAYAAAAQAP3/AgAIAAYAAAAQAP7/AgAIAAYAAAAQAP//AgAIAAYAAAAQAAAAAgAIAAYAAAAQAAEAAgAIAAYAAAAQAAIAAgAIAAYAAAAQAAMAAgAIAAYAAAAQAAQAAgAIAAYAAAAQAAUAAgAIAAYAAAAQAAYAAgAIAAYAAAAQAAcAAgAIAAYAAAAQAAgAAgAIAAYAAAAQAAkAAgAIAAYAAAA=")
+tile_set = ExtResource("7_6xh1d")
+
+[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1242136020]
 libraries/ = SubResource("AnimationLibrary_2kqig")
 
-[node name="MenuAnimationTree" type="AnimationTree" parent="." index="2" unique_id=442855404]
+[node name="MenuAnimationTree" type="AnimationTree" parent="." index="3" unique_id=442855404]
 tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
@@ -382,14 +395,23 @@ grow_vertical = 0
 theme_override_constants/separation = 2
 lock = true
 
+[node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="0" unique_id=1434444510]
+text = "START"
+
+[node name="OptionsButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1" unique_id=1028226159]
+text = "OPTIONS"
+
+[node name="CreditsButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2" unique_id=1695433230]
+text = "CREDITS"
+
+[node name="ExitButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3" unique_id=1226331361]
+text = "QUIT"
+
 [node name="VersionContainer" parent="VersionMargin" parent_id_path=PackedInt32Array(115503069) index="0" unique_id=645412385]
 modulate = Color(1, 1, 1, 0)
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=321873498]
 offset_top = -14.0
-
-[node name="ExitConfirmation" parent="." index="5" unique_id=1903054312]
-ignore_siblings = false
 
 [node name="MouseFilter" type="Control" parent="." index="6" unique_id=907820896]
 layout_mode = 1
@@ -401,7 +423,17 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="7" unique_id=1725001081]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="7" unique_id=431322858]
+position = Vector2(66.00001, 116)
+scale = Vector2(1.992, 2)
+sprite_frames = ExtResource("7_2k5l7")
+animation = &"intro"
+script = ExtResource("8_2k5l7")
+
+[node name="ExitConfirmation" parent="." index="8" unique_id=1903054312]
+ignore_siblings = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="9" unique_id=1725001081]
 
 [node name="PaletteLimiter" type="ColorRect" parent="CanvasLayer" index="0" unique_id=1614031303]
 material = SubResource("ShaderMaterial_vsp5b")
@@ -412,9 +444,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="8" unique_id=431322858]
-position = Vector2(60.000004, 87)
-scale = Vector2(2.078125, 2.0859375)
-sprite_frames = ExtResource("7_2k5l7")
-animation = &"intro"
-script = ExtResource("8_2k5l7")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10" unique_id=1709803394]
+stream = ExtResource("11_xkrf4")
+autoplay = true
+bus = &"Music"

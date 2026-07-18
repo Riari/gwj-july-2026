@@ -14,11 +14,11 @@ var _unselected: StyleBoxFlat
 
 func _ready() -> void:
 	_unselected = StyleBoxFlat.new()
-	_unselected.bg_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+	_unselected.bg_color = Color(0.9372549, 0.49019608, 0.34117648, 0.0)
 	_unselected.set_border_width_all(2)
 	_unselected.border_color = Color(0.5, 0.5, 0.5, 1)
 	_highlight = StyleBoxFlat.new()
-	_highlight.bg_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+	_highlight.bg_color = Color(0.9372549, 0.49019608, 0.34117648, 0.0)
 	_highlight.set_border_width_all(3)
 	_highlight.border_color = Color.YELLOW
 

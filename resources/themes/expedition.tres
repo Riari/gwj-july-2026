@@ -4,32 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://bf6saxcwfj0fm" path="res://assets/textures/ui/CheckboxChecked.png" id="1_mbnua"]
 [ext_resource type="Texture2D" uid="uid://cy206r2ayfbk1" path="res://assets/textures/ui/CheckboxUncheckedl.png" id="2_oyxjp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbnua"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+anti_aliasing = false
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0sbc"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.10653389, 0.30868635, 0.778506, 1)
-border_width_bottom = 2
+bg_color = Color(0.105882354, 0.30980393, 0.78039217, 0)
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
 corner_detail = 4
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krvwn"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.07039546, 0.23556402, 0.61885524, 1)
-border_width_bottom = 2
+bg_color = Color(0.07058824, 0.23529412, 0.61960787, 0)
 border_color = Color(1.0810618e-09, 0.0024063096, 0.0030029889, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
 corner_detail = 4
 anti_aliasing = false
 
@@ -38,16 +33,12 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.054841816, 0.20006573, 0.5391458, 1)
-border_width_bottom = 2
+bg_color = Color(0.05490196, 0.2, 0.5372549, 0)
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
 corner_detail = 4
+anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbnua"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyxjp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2k5l7"]
@@ -94,7 +85,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.823636, 0.744991, 0.659007, 1)
+bg_color = Color(0.5803922, 0.6901961, 0.7607843, 1)
 border_color = Color(0.662913, 0.549096, 0.478248, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ngrn"]
@@ -102,7 +93,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.662913, 0.549096, 0.478248, 1)
+bg_color = Color(0.5803922, 0.6901961, 0.7607843, 1)
 border_color = Color(0.466529, 0.360525, 0.333165, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0g5m"]
@@ -110,18 +101,21 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.466529, 0.360525, 0.333165, 1)
+bg_color = Color(0.2, 0.23529412, 0.34117648, 1)
 border_color = Color(0.282353, 0.231067, 0.227161, 1)
 
 [resource]
 default_font = ExtResource("1_2hx3l")
 default_font_size = 16
+Button/colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/styles/disabled = SubResource("StyleBoxFlat_mbnua")
 Button/styles/hover = SubResource("StyleBoxFlat_g0sbc")
 Button/styles/normal = SubResource("StyleBoxFlat_krvwn")
 Button/styles/pressed = SubResource("StyleBoxFlat_gfyr3")
 CheckButton/icons/checked = ExtResource("1_mbnua")
 CheckButton/icons/unchecked = ExtResource("2_oyxjp")
-CheckButton/styles/hover = SubResource("StyleBoxFlat_mbnua")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_oyxjp")
 CheckButton/styles/normal = SubResource("StyleBoxFlat_2k5l7")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_vsp5b")
 HSlider/icons/grabber = SubResource("GradientTexture2D_mbnua")
@@ -129,6 +123,7 @@ HSlider/icons/grabber_highlight = SubResource("GradientTexture2D_51i2u")
 HSlider/styles/slider = SubResource("StyleBoxFlat_a4vt6")
 Panel/styles/panel = SubResource("StyleBoxFlat_tytr8")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_tytr8")
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
 TabContainer/styles/panel = SubResource("StyleBoxFlat_tytr8")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_wsakr")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_1ngrn")
