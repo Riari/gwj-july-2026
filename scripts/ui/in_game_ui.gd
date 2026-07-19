@@ -6,7 +6,6 @@ class_name InGameUI extends Node
 @onready var hint_text_label: RichTextLabel = %HintTextLabel
 
 func _ready() -> void:
-	GameState.reset_score()
 	fade_rect.color.a = 1.0
 	var fade_tween := fade_rect.create_tween()
 	fade_tween.tween_property(fade_rect, "color:a", 0.0, 0.5)
