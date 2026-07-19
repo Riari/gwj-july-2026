@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6edvfni5n6uu" path="res://scenes/windows/level_lost_window.tscn" id="6_ascoc"]
 [ext_resource type="PackedScene" uid="uid://bnmwccmxfg6ym" path="res://scenes/windows/level_won_window.tscn" id="7_wr4n6"]
 [ext_resource type="Script" uid="uid://wjq7li836lwj" path="res://addons/maaacks_game_template/extras/scripts/scene_lister.gd" id="8_ukb12"]
-[ext_resource type="Script" uid="uid://ixrc0cl72dib" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="10_rkfhe"]
+[ext_resource type="Script" uid="uid://bnhmjy582mlax" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="10_rkfhe"]
 
 [node name="GameUI" type="Control" unique_id=916921519]
 layout_mode = 3
@@ -56,6 +56,6 @@ stretch = true
 handle_input_locally = false
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
-size = Vector2i(1280, 720)
+size = Vector2i(320, 180)
 render_target_update_mode = 4
 script = ExtResource("10_rkfhe")
