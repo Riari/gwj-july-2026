@@ -11,7 +11,7 @@ var selected: int = -1
 var _highlight: StyleBoxFlat
 var _unselected: StyleBoxFlat
 
-const selectable_cats: Array = [Sprites.Type.CAT_GREY, Sprites.Type.CAT_ORANGE, Sprites.Type.CAT_BLACK]
+const selectable_cats: Array = [SpriteUtils.Type.CAT_GREY, SpriteUtils.Type.CAT_ORANGE, SpriteUtils.Type.CAT_BLACK]
 
 func _ready() -> void:
 	_unselected = StyleBoxFlat.new()

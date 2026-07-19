@@ -36,8 +36,8 @@ func on_character_died(_instigator: Character) -> void:
 	play_anim(ANIM_DEAD)
 	_anim_locked = true
 
-func set_sprite_frames(sprite: Sprites.Type) -> void:
-	anim_sprite.sprite_frames = Sprites.sprite_frames[sprite]
+func set_sprite_frames(sprite: SpriteUtils.Type) -> void:
+	anim_sprite.sprite_frames = SpriteUtils.sprite_frames[sprite]
 
 func play_idle_anim(anim: String = "") -> void:
 	if anim.length() > 0:

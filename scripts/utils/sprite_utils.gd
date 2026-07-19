@@ -1,4 +1,4 @@
-﻿class_name Sprites
+﻿class_name SpriteUtils
 
 enum Type {
 	CAT_BLACK,

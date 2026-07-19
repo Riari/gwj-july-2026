@@ -2,6 +2,8 @@ class_name InGameUI extends Node
 
 @onready var fade_rect: ColorRect = %FadeRect
 @onready var game_over_label: Label = %GameOverLabel
+@onready var hint_text_panel: Panel = %HintTextPanel
+@onready var hint_text_label: RichTextLabel = %HintTextLabel
 
 func _ready() -> void:
 	GameState.reset_score()
@@ -31,3 +33,10 @@ func on_player_died() -> void:
 
 func on_player_scored() -> void:
 	%HUD.on_player_scored()
+
+func show_hint_text(text: String) -> void:
+	hint_text_panel.visible = true
+	hint_text_label.parse_bbcode(text)
+
+func hide_hint_text() -> void:
+	hint_text_panel.visible = false

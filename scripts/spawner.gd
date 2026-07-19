@@ -11,10 +11,8 @@ func spawn(character: Character) -> void:
 	var animation: AnimationComponent = character.get_component(AnimationComponent)
 	if animation:
 		var sprite_type := GameState.get_selected_cat()
-		print(sprite_type)
 		while sprite_type == GameState.get_selected_cat():
-			sprite_type = Sprites.Type.values().pick_random()
-			print(sprite_type)
+			sprite_type = SpriteUtils.Type.values().pick_random()
 
 		animation.set_sprite_frames(sprite_type)
 	

@@ -74,6 +74,9 @@ func _on_died(instigator: Character) -> void:
 		if node is CollisionShape2D:
 			node.set_deferred("disabled", true)
 
+func is_player() -> bool:
+	return _is_player
+
 func is_dead() -> bool:
 	return _is_dead
 
