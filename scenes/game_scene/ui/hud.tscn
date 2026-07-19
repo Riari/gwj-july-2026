@@ -87,6 +87,7 @@ grow_horizontal = 2
 text = "00:00.00"
 
 [node name="RadarPanel" type="Panel" parent="." unique_id=1122674068]
+visible = false
 self_modulate = Color(0, 0, 0, 0.8)
 clip_contents = true
 layout_mode = 1

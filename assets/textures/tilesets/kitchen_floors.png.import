@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0tf0e1kaccwy"
-path="res://.godot/imported/Trophy.png-d6fe1b39ab1e612e94e3cb6723d1c48e.ctex"
+uid="uid://56h53xepgcc8"
+path="res://.godot/imported/kitchen_floors.png-84991424de69a2f6d94b4d35d4429683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/easy_leaderboards/base_leaderboard/Trophy.png"
-dest_files=["res://.godot/imported/Trophy.png-d6fe1b39ab1e612e94e3cb6723d1c48e.ctex"]
+source_file="res://assets/textures/tilesets/kitchen_floors.png"
+dest_files=["res://.godot/imported/kitchen_floors.png-84991424de69a2f6d94b4d35d4429683.ctex"]
 
 [params]
 
