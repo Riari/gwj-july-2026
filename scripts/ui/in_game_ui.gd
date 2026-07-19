@@ -30,8 +30,8 @@ func on_player_died() -> void:
 	await fade_tween.finished
 	game_over_label.visible = true
 
-func on_player_scored() -> void:
-	%HUD.on_player_scored()
+func on_player_scored(current_score: int) -> void:
+	%HUD.on_player_scored(current_score)
 
 func show_hint_text(text: String) -> void:
 	hint_text_panel.visible = true

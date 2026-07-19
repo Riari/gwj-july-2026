@@ -37,7 +37,6 @@ func get_game_scene_path() -> String:
 	return game_scene_path
 
 func load_game_scene() -> void:
-	GameState.reset_score()
 	if scene_loader_node:
 		if signal_game_start:
 			scene_loader_node.load_scene(get_game_scene_path(), true)

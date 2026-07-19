@@ -26,6 +26,6 @@ func on_player_heal(health_gained: int) -> void:
 func on_player_hurt(health_lost: int) -> void:
 	%HeartBar.modify(-health_lost)
 
-func on_player_scored() -> void:
-	score_label.text = "Score: " + str(GameState.get_score())
-	score_label_shadow.text = "Score: " + str(GameState.get_score())
+func on_player_scored(current_score: int) -> void:
+	score_label.text = "Score: " + str(current_score)
+	score_label_shadow.text = "Score: " + str(current_score)

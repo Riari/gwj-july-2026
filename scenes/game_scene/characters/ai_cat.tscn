@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bfcxhmscd2je0" path="res://scripts/components/animation_component.gd" id="7_5xxj2"]
 [ext_resource type="Script" uid="uid://c6d8apfia6nyi" path="res://scripts/components/health_component.gd" id="8_6rhne"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dtqbr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7nt5"]
 resource_local_to_scene = true
 shader = ExtResource("2_k7nt5")
 shader_parameter/flash_active = false
@@ -23,7 +23,7 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1190068141]
-material = SubResource("ShaderMaterial_dtqbr")
+material = SubResource("ShaderMaterial_k7nt5")
 
 [node name="AIComponent" type="Node2D" parent="." index="2" unique_id=1828108523]
 script = ExtResource("2_a445g")

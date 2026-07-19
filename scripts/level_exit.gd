@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		if level:
 			var time := GameState.get_current_level_time()
 			var medal := level.calculate_medal(time)
-			GameState.finish_level(time, medal)
+			GameState.finish_level(level.level_index, level.current_score, time, medal)
 		scene_loader_node.load_scene(_win_screen_path)
 
 func _on_body_entered(body: Node2D) -> void:

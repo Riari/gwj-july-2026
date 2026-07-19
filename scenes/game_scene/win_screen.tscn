@@ -1,6 +1,21 @@
-[gd_scene format=3 uid="uid://b5xp67ju5xmq0"]
+[gd_scene format=4 uid="uid://b5xp67ju5xmq0"]
 
-[ext_resource type="Script" path="res://scripts/ui/win_screen.gd" id="1_win"]
+[ext_resource type="Script" uid="uid://tnaetdlwnrvl" path="res://scripts/ui/win_screen.gd" id="1_win"]
+[ext_resource type="Shader" uid="uid://dhiqu1kjsaui3" path="res://resources/shaders/color_mix.gdshader" id="2_a7w1t"]
+[ext_resource type="Shader" uid="uid://djf7f6jvxg2cr" path="res://resources/shaders/palette_limiter.gdshader" id="2_wp5ho"]
+[ext_resource type="Texture2D" uid="uid://gko8y81m1yg8" path="res://assets/textures/palettes/sweetie-16-1x.png" id="3_45dbx"]
+[ext_resource type="TileSet" uid="uid://bb73p777p8p2y" path="res://resources/tilesets/tileset_wallpaper.tres" id="3_lnms3"]
+[ext_resource type="AudioStream" uid="uid://el18h687ucij" path="res://assets/audio/music/track-4.ogg" id="4_45dbx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n23sb"]
+resource_local_to_scene = true
+shader = ExtResource("2_a7w1t")
+shader_parameter/mix_color = Color(0.06404454, 0.17883888, 0.41919327, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nk6j1"]
+shader = ExtResource("2_wp5ho")
+shader_parameter/num_colors = 16
+shader_parameter/PALETTE_TEXTURE = ExtResource("3_45dbx")
 
 [node name="WinScreen" type="Control" unique_id=1978577920]
 layout_mode = 3
@@ -11,7 +26,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_win")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=980935778]
+material = SubResource("ShaderMaterial_n23sb")
+tile_map_data = PackedByteArray("AAD/////AgAOAAkAAAD//wAAAgAOAAkAAAD//wEAAgAOAAkAAAD//wIAAgAOAAkAAAD//wMAAgAOAAkAAAD//wQAAgAOAAkAAAD//wUAAgAOAAkAAAD//wYAAgAOAAkAAAAAAP//AgAOAAkAAAAAAAAAAgAOAAkAAAAAAAEAAgAOAAkAAAAAAAIAAgAOAAkAAAAAAAMAAgAOAAkAAAAAAAQAAgAOAAkAAAAAAAUAAgAOAAkAAAAAAAYAAgAOAAkAAAABAP//AgAOAAkAAAABAAAAAgAOAAkAAAABAAEAAgAOAAkAAAABAAIAAgAOAAkAAAABAAMAAgAOAAkAAAABAAQAAgAOAAkAAAABAAUAAgAOAAkAAAABAAYAAgAOAAkAAAACAP//AgAOAAkAAAACAAAAAgAOAAkAAAACAAEAAgAOAAkAAAACAAIAAgAOAAkAAAACAAMAAgAOAAkAAAACAAQAAgAOAAkAAAACAAUAAgAOAAkAAAACAAYAAgAOAAkAAAADAP//AgAOAAkAAAADAAAAAgAOAAkAAAADAAEAAgAOAAkAAAADAAIAAgAOAAkAAAADAAMAAgAOAAkAAAADAAQAAgAOAAkAAAADAAUAAgAOAAkAAAADAAYAAgAOAAkAAAAEAP//AgAOAAkAAAAEAAAAAgAOAAkAAAAEAAEAAgAOAAkAAAAEAAIAAgAOAAkAAAAEAAMAAgAOAAkAAAAEAAQAAgAOAAkAAAAEAAUAAgAOAAkAAAAEAAYAAgAOAAkAAAAFAP//AgAOAAkAAAAFAAAAAgAOAAkAAAAFAAEAAgAOAAkAAAAFAAIAAgAOAAkAAAAFAAMAAgAOAAkAAAAFAAQAAgAOAAkAAAAFAAUAAgAOAAkAAAAFAAYAAgAOAAkAAAAGAP//AgAOAAkAAAAGAAAAAgAOAAkAAAAGAAEAAgAOAAkAAAAGAAIAAgAOAAkAAAAGAAMAAgAOAAkAAAAGAAQAAgAOAAkAAAAGAAUAAgAOAAkAAAAGAAYAAgAOAAkAAAAHAP//AgAOAAkAAAAHAAAAAgAOAAkAAAAHAAEAAgAOAAkAAAAHAAIAAgAOAAkAAAAHAAMAAgAOAAkAAAAHAAQAAgAOAAkAAAAHAAUAAgAOAAkAAAAHAAYAAgAOAAkAAAAIAP//AgAOAAkAAAAIAAAAAgAOAAkAAAAIAAEAAgAOAAkAAAAIAAIAAgAOAAkAAAAIAAMAAgAOAAkAAAAIAAQAAgAOAAkAAAAIAAUAAgAOAAkAAAAIAAYAAgAOAAkAAAAJAP//AgAOAAkAAAAJAAAAAgAOAAkAAAAJAAEAAgAOAAkAAAAJAAIAAgAOAAkAAAAJAAMAAgAOAAkAAAAJAAQAAgAOAAkAAAAJAAUAAgAOAAkAAAAJAAYAAgAOAAkAAAAKAP//AgAOAAkAAAAKAAAAAgAOAAkAAAAKAAEAAgAOAAkAAAAKAAIAAgAOAAkAAAAKAAMAAgAOAAkAAAAKAAQAAgAOAAkAAAAKAAUAAgAOAAkAAAAKAAYAAgAOAAkAAAA=")
+tile_set = ExtResource("3_lnms3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=355402829]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,7 +44,7 @@ offset_right = 100.0
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 6
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1427574537]
 layout_mode = 2
@@ -32,26 +52,68 @@ text = "Level Complete!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1099891608]
 layout_mode = 2
 
-[node name="TimeLabel" type="Label" parent="VBoxContainer"]
+[node name="TimeLabel" type="Label" parent="VBoxContainer" unique_id=1813914918]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Time: 00:00.00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MedalLabel" type="Label" parent="VBoxContainer"]
+[node name="MedalLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1407016914]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
-text = "Medal: None"
+bbcode_enabled = true
+text = "Medal: [color=gold]None[/color]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=1158373369]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MedalMultiplierLabel" type="Label" parent="VBoxContainer" unique_id=93553189]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Medal Multiplier: 1.5x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScoreLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=384780229]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+bbcode_enabled = true
+text = "Final Score: [color=green]1500[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewHighScoreLabel" type="Label" parent="VBoxContainer" unique_id=910441444]
+unique_name_in_owner = true
+self_modulate = Color(0, 0.7643798, 0.44351903, 1)
+layout_mode = 2
+text = "-- New high score! --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1318629664]
+
+[node name="PaletteLimiter" type="ColorRect" parent="CanvasLayer" unique_id=18986072]
+material = SubResource("ShaderMaterial_nk6j1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=433622603]
+stream = ExtResource("4_45dbx")
+autoplay = true
+bus = &"Music"
