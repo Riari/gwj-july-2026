@@ -96,7 +96,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 self_modulate = Color(0, 0.7643798, 0.44351903, 1)
 layout_mode = 2
-text = "-- New high score! --"
+text = "-- New High Score! --"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -131,6 +131,7 @@ text = "NEXT LEVEL"
 
 [node name="ConfirmationWindow" parent="." unique_id=1808979350 instance=ExtResource("4_lnms3")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 offset_left = -82.0
 offset_right = 82.0

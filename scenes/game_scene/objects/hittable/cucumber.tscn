@@ -43,5 +43,5 @@ metadata/_custom_type_script = "uid://debjs7k8d2g1a"
 
 [node name="ScoreComponent" type="Node2D" parent="." unique_id=2061748999]
 script = ExtResource("6_ta6bb")
-points = 200
+points = 300
 metadata/_custom_type_script = "uid://cgiyi02a0ca78"

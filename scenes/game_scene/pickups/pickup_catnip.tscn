@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dgdpj4ifu22pk"]
+
+[ext_resource type="Script" uid="uid://cesg35w3o1r6y" path="res://scripts/pickups/pickup.gd" id="1_gn4tp"]
+[ext_resource type="Texture2D" uid="uid://hg7s7k1vmm07" path="res://assets/textures/sprites/catnip.png" id="2_gn4tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75cn0"]
+size = Vector2(16, 14)
+
+[node name="PickupCatnip" type="Area2D" unique_id=604799530]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_gn4tp")
+heal_value = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1667892940]
+shape = SubResource("RectangleShape2D_75cn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=311997983]
+texture = ExtResource("2_gn4tp")
