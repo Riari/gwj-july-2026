@@ -41,5 +41,5 @@ func _physics_process(delta: float) -> void:
 
 	global_position = new_position.round()
 
-func _on_player_died(instigator: Character) -> void:
+func on_player_died(instigator: Character) -> void:
 	is_following = false

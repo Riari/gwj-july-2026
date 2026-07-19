@@ -119,8 +119,9 @@ position = Vector2(100, 132)
 stream = ExtResource("13_hex2x")
 volume_db = -8.0
 
-[connection signal="on_died" from="PlayerCharacter" to="Camera2D" method="_on_player_died"]
+[connection signal="on_died" from="PlayerCharacter" to="Camera2D" method="on_player_died"]
+[connection signal="on_died" from="PlayerCharacter" to="InGameUI" method="on_player_died"]
 [connection signal="on_healed" from="PlayerCharacter" to="." method="_on_player_healed"]
 [connection signal="on_health_init" from="PlayerCharacter" to="." method="on_player_health_init"]
 [connection signal="on_hurt" from="PlayerCharacter" to="." method="on_player_hurt"]
-[connection signal="on_scored" from="PlayerCharacter" to="." method="_on_player_scored"]
+[connection signal="on_scored" from="PlayerCharacter" to="." method="on_player_scored"]

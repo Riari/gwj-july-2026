@@ -20,6 +20,11 @@ static func get_or_create_state() -> GameState:
 		GlobalState.open()
 	return GlobalState.get_or_create_state(STATE_NAME, FILE_PATH)
 
+static func set_last_level_index(value: int) -> void:
+	var game_state := get_or_create_state()
+	game_state.last_level_index = value
+	GlobalState.save()
+
 static func get_high_score(level_index: int) -> int:
 	var game_state := get_or_create_state()
 	return game_state.high_scores[level_index]

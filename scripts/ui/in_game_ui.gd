@@ -1,7 +1,8 @@
 class_name InGameUI extends Node
 
+signal on_fade_out_complete
+
 @onready var fade_rect: ColorRect = %FadeRect
-@onready var game_over_label: Label = %GameOverLabel
 @onready var hint_text_panel: Panel = %HintTextPanel
 @onready var hint_text_label: RichTextLabel = %HintTextLabel
 
@@ -20,7 +21,7 @@ func on_player_hurt(_instigator: Character, damage: int) -> void:
 func on_player_heal(health_gained: int) -> void:
 	%HUD.on_player_heal(health_gained)
 
-func on_player_died() -> void:
+func on_player_died(_instigator: Character) -> void:
 	ProjectMusicController.fade_out(1.0)
 	
 	var fade_tween := fade_rect.create_tween()
@@ -28,7 +29,7 @@ func on_player_died() -> void:
 	fade_tween.tween_property(fade_rect, "color:a", 1.0, 1.0)
 	fade_tween.play()
 	await fade_tween.finished
-	game_over_label.visible = true
+	on_fade_out_complete.emit()
 
 func on_player_scored(current_score: int) -> void:
 	%HUD.on_player_scored(current_score)
@@ -39,3 +40,6 @@ func show_hint_text(text: String) -> void:
 
 func hide_hint_text() -> void:
 	hint_text_panel.visible = false
+
+func _on_player_died(instigator: Character) -> void:
+	pass # Replace with function body.

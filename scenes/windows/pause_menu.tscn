@@ -61,7 +61,6 @@ text = "QUIT"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-ignore_siblings = false
 title = "Confirm Restart"
 text = "Restart the game?"
 
@@ -70,7 +69,6 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
-ignore_siblings = false
 title = "Confirm Exit"
 text = "Exit to the main menu?"
 
@@ -78,7 +76,6 @@ text = "Exit to the main menu?"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-ignore_siblings = false
 title = "Confirm Exit"
 text = "Exit the game?"
 

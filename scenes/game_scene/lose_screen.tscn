@@ -1,0 +1,108 @@
+[gd_scene format=4 uid="uid://dsm2a03xkifgg"]
+
+[ext_resource type="Script" uid="uid://bu131er6m3foy" path="res://scripts/ui/lose_screen.gd" id="1_bel4x"]
+[ext_resource type="Shader" uid="uid://dhiqu1kjsaui3" path="res://resources/shaders/color_mix.gdshader" id="1_fwk63"]
+[ext_resource type="TileSet" uid="uid://bb73p777p8p2y" path="res://resources/tilesets/tileset_wallpaper.tres" id="2_aqh2y"]
+[ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="3_bel4x"]
+[ext_resource type="Shader" uid="uid://djf7f6jvxg2cr" path="res://resources/shaders/palette_limiter.gdshader" id="4_a4cg6"]
+[ext_resource type="Texture2D" uid="uid://gko8y81m1yg8" path="res://assets/textures/palettes/sweetie-16-1x.png" id="5_kdpjx"]
+[ext_resource type="SpriteFrames" uid="uid://gsc1qib0rlya" path="res://resources/sprite_frames/sprite_frames_cat_black.tres" id="7_aqh2y"]
+[ext_resource type="AudioStream" uid="uid://dya1e1uyuof40" path="res://assets/audio/music/18 High Quality 8-bit Musics/13. I am not clumsy.mp3" id="8_bel4x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hydxr"]
+resource_local_to_scene = true
+shader = ExtResource("1_fwk63")
+shader_parameter/mix_color = Color(0.6241901, 0.33307925, 0.20945045, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpri4"]
+shader = ExtResource("4_a4cg6")
+shader_parameter/num_colors = 16
+shader_parameter/PALETTE_TEXTURE = ExtResource("5_kdpjx")
+
+[node name="LoseScreen" type="Control" unique_id=376983782]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bel4x")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=572461241]
+material = SubResource("ShaderMaterial_hydxr")
+tile_map_data = PackedByteArray("AAD/////AgAHAAQAAAD//wAAAgAHAAQAAAD//wEAAgAHAAQAAAD//wIAAgAHAAQAAAD//wMAAgAHAAQAAAD//wQAAgAHAAQAAAD//wUAAgAHAAQAAAD//wYAAgAHAAQAAAAAAP//AgAHAAQAAAAAAAAAAgAHAAQAAAAAAAEAAgAHAAQAAAAAAAIAAgAHAAQAAAAAAAMAAgAHAAQAAAAAAAQAAgAHAAQAAAAAAAUAAgAHAAQAAAAAAAYAAgAHAAQAAAABAP//AgAHAAQAAAABAAAAAgAHAAQAAAABAAEAAgAHAAQAAAABAAIAAgAHAAQAAAABAAMAAgAHAAQAAAABAAQAAgAHAAQAAAABAAUAAgAHAAQAAAABAAYAAgAHAAQAAAACAP//AgAHAAQAAAACAAAAAgAHAAQAAAACAAEAAgAHAAQAAAACAAIAAgAHAAQAAAACAAMAAgAHAAQAAAACAAQAAgAHAAQAAAACAAUAAgAHAAQAAAACAAYAAgAHAAQAAAADAP//AgAHAAQAAAADAAAAAgAHAAQAAAADAAEAAgAHAAQAAAADAAIAAgAHAAQAAAADAAMAAgAHAAQAAAADAAQAAgAHAAQAAAADAAUAAgAHAAQAAAADAAYAAgAHAAQAAAAEAP//AgAHAAQAAAAEAAAAAgAHAAQAAAAEAAEAAgAHAAQAAAAEAAIAAgAHAAQAAAAEAAMAAgAHAAQAAAAEAAQAAgAHAAQAAAAEAAUAAgAHAAQAAAAEAAYAAgAHAAQAAAAFAP//AgAHAAQAAAAFAAAAAgAHAAQAAAAFAAEAAgAHAAQAAAAFAAIAAgAHAAQAAAAFAAMAAgAHAAQAAAAFAAQAAgAHAAQAAAAFAAUAAgAHAAQAAAAFAAYAAgAHAAQAAAAGAP//AgAHAAQAAAAGAAAAAgAHAAQAAAAGAAEAAgAHAAQAAAAGAAIAAgAHAAQAAAAGAAMAAgAHAAQAAAAGAAQAAgAHAAQAAAAGAAUAAgAHAAQAAAAGAAYAAgAHAAQAAAAHAP//AgAHAAQAAAAHAAAAAgAHAAQAAAAHAAEAAgAHAAQAAAAHAAIAAgAHAAQAAAAHAAMAAgAHAAQAAAAHAAQAAgAHAAQAAAAHAAUAAgAHAAQAAAAHAAYAAgAHAAQAAAAIAP//AgAHAAQAAAAIAAAAAgAHAAQAAAAIAAEAAgAHAAQAAAAIAAIAAgAHAAQAAAAIAAMAAgAHAAQAAAAIAAQAAgAHAAQAAAAIAAUAAgAHAAQAAAAIAAYAAgAHAAQAAAAJAP//AgAHAAQAAAAJAAAAAgAHAAQAAAAJAAEAAgAHAAQAAAAJAAIAAgAHAAQAAAAJAAMAAgAHAAQAAAAJAAQAAgAHAAQAAAAJAAUAAgAHAAQAAAAJAAYAAgAHAAQAAAAKAP//AgAHAAQAAAAKAAAAAgAHAAQAAAAKAAEAAgAHAAQAAAAKAAIAAgAHAAQAAAAKAAMAAgAHAAQAAAAKAAQAAgAHAAQAAAAKAAUAAgAHAAQAAAAKAAYAAgAHAAQAAAA=")
+tile_set = ExtResource("2_aqh2y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1617287819]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 10.0
+offset_right = 99.99982
+offset_bottom = 140.0
+grow_horizontal = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1138702964]
+layout_mode = 2
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=163361978]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -27.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="HBoxContainer" unique_id=1459088143]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="RetryButton" type="Button" parent="HBoxContainer" unique_id=1055128111]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RETRY"
+
+[node name="ConfirmationWindow" parent="." unique_id=1808979350 instance=ExtResource("3_bel4x")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -82.0
+offset_right = 82.0
+exclusive = false
+exclusive_background_color = Color(0, 0, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1746701718]
+unique_name_in_owner = true
+position = Vector2(160, 62)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_aqh2y")
+animation = &"washing"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=724910351]
+
+[node name="PaletteLimiter" type="ColorRect" parent="CanvasLayer" unique_id=2146840946]
+material = SubResource("ShaderMaterial_bpri4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=94837512]
+stream = ExtResource("8_bel4x")
+autoplay = true
+bus = &"Music"

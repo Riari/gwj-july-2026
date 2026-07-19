@@ -35,7 +35,7 @@ func _ready() -> void:
 		break
 
 func _physics_process(delta: float) -> void:
-	if !_is_enabled: return
+	if !_is_enabled or !_player: return
 	
 	var distance_to_player: float = _character.global_position.distance_to(_player.global_position)
 	if can_attack and distance_to_player < aggro_radius:
