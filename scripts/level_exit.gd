@@ -15,6 +15,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("unloaf") and _player_is_in_area:
+		var level := owner as Level
+		if level:
+			var time := GameState.get_current_level_time()
+			var medal := level.calculate_medal(time)
+			GameState.finish_level(time, medal)
 		scene_loader_node.load_scene(_win_screen_path)
 
 func _on_body_entered(body: Node2D) -> void:
