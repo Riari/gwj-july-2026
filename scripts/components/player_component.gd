@@ -47,13 +47,8 @@ func on_components_initialised(components: Array[Component]) -> void:
 	_apply_selected_cat_skin()
 
 func _apply_selected_cat_skin() -> void:
-	var cat_key := GameState.get_selected_cat()
-	var frames_path := "res://resources/sprite_frames/sprite_frames_cat_%s.tres" % cat_key
-	var frames := load(frames_path) as SpriteFrames
-	if frames:
-		_animation.anim_sprite.sprite_frames = frames
-	else:
-		push_warning("Could not load cat sprite frames: ", frames_path)
+	var cat_sprite := GameState.get_selected_cat()
+	_animation.set_sprite_frames(cat_sprite)
 
 func on_character_hurt(_instigator: Character, _damage: int) -> void:
 	_input_disabled = true

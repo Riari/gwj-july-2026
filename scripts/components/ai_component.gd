@@ -2,6 +2,7 @@
 
 @export var wander_interval: Array[float] = [1.0, 3.0]
 @export var idle_interval: Array[float] = [0.5, 1.0]
+@export var can_jump: bool = true
 @export var can_attack: bool = true
 
 enum State {
@@ -10,6 +11,7 @@ enum State {
 	ATTACKING
 }
 
+var _animation: AnimationComponent
 var _movement: MovementComponent
 
 var _directions: Array[float] = [-1.0, 1.0]
@@ -25,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if _timer > 0.0:
 		_timer -= delta
 		if _timer <= 0.0:
-			choose_next_state()
+			_choose_next_state()
 
 	if _character.is_on_wall():
 		_move_direction = -_move_direction
@@ -36,12 +38,14 @@ func on_components_initialised(components: Array[Component]) -> void:
 	super.on_components_initialised(components)
 
 	for component in components:
-		if component is MovementComponent:
+		if component is AnimationComponent:
+			_animation = component
+		elif component is MovementComponent:
 			_movement = component
 
-	choose_next_state()
+	_choose_next_state()
 
-func choose_next_state() -> void:
+func _choose_next_state() -> void:
 	_state = _passive_states.pick_random()
 	match _state:
 		State.WANDER:

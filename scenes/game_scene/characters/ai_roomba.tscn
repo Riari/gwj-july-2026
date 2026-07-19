@@ -42,6 +42,8 @@ texture = ExtResource("2_xwrfe")
 
 [node name="AIComponent" type="Node2D" parent="." unique_id=1294812257]
 script = ExtResource("4_og32v")
+can_jump = false
+can_attack = false
 metadata/_custom_type_script = "uid://bbehrvn5uemcq"
 
 [node name="MovementComponent" type="Node2D" parent="." unique_id=430528976]

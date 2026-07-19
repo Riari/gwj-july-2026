@@ -11,6 +11,7 @@ var selected: int = -1
 var _highlight: StyleBoxFlat
 var _unselected: StyleBoxFlat
 
+const selectable_cats: Array = [Sprites.Type.CAT_GREY, Sprites.Type.CAT_ORANGE, Sprites.Type.CAT_BLACK]
 
 func _ready() -> void:
 	_unselected = StyleBoxFlat.new()
@@ -27,7 +28,7 @@ func _ready() -> void:
 		var preview: AnimatedSprite2D = panels[i].get_node("VBox/PreviewContainer/Preview")
 		preview.animation_finished.connect(_on_preview_animation_finished.bind(preview))
 		preview.play("idle")
-		if ["grey", "orange", "black"][i] == GameState.get_selected_cat():
+		if selectable_cats[i] == GameState.get_selected_cat():
 			_click(i)
 
 	_update_start()
@@ -48,12 +49,10 @@ func _click(i: int) -> void:
 	panels[i].get_node("VBox/PreviewContainer/Preview").play("jump")
 	_update_start()
 
-
 func _on_start_button_pressed() -> void:
-	GameState.set_selected_cat(["grey", "orange", "black"][selected])
+	GameState.set_selected_cat(selectable_cats[selected])
 	game_started.emit()
 	hide()
-
 
 func _on_back_button_pressed() -> void:
 	back_pressed.emit()

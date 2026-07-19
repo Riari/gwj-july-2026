@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://uodowlxv7c2b"]
 
 [ext_resource type="PackedScene" uid="uid://iwhiqytys7vs" path="res://scenes/game_scene/characters/character_base.tscn" id="1_nuoek"]
+[ext_resource type="Script" uid="uid://bbehrvn5uemcq" path="res://scripts/components/ai_component.gd" id="2_a445g"]
+[ext_resource type="Script" uid="uid://debjs7k8d2g1a" path="res://scripts/components/movement_component.gd" id="3_j56yv"]
+[ext_resource type="Script" uid="uid://cgiyi02a0ca78" path="res://scripts/components/score_component.gd" id="4_hcayd"]
+[ext_resource type="Script" uid="uid://bxmo77pxtrb2v" path="res://scripts/components/attack_component.gd" id="5_q1f02"]
 
-[node name="GreyCat" unique_id=109084431 instance=ExtResource("1_nuoek")]
+[node name="AICat" unique_id=109084431 instance=ExtResource("1_nuoek")]
+
+[node name="AIComponent" type="Node2D" parent="." index="2" unique_id=1828108523]
+script = ExtResource("2_a445g")
+metadata/_custom_type_script = "uid://bbehrvn5uemcq"
+
+[node name="MovementComponent" type="Node2D" parent="." index="3" unique_id=213340713]
+script = ExtResource("3_j56yv")
+metadata/_custom_type_script = "uid://debjs7k8d2g1a"
+
+[node name="ScoreComponent" type="Node2D" parent="." index="4" unique_id=851555791]
+script = ExtResource("4_hcayd")
+metadata/_custom_type_script = "uid://cgiyi02a0ca78"
+
+[node name="AttackComponent" type="Node2D" parent="." index="5" unique_id=1509127214]
+script = ExtResource("5_q1f02")
+metadata/_custom_type_script = "uid://bxmo77pxtrb2v"
