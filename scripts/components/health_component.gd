@@ -11,7 +11,7 @@ func init(character: Character) -> void:
 	current_health = max_health
 	_character.on_health_init.emit(current_health)
 
-func on_character_hurt(instigator: Character, damage: int) -> void:
+func on_character_hurt(instigator: Character, damage: int, _knockback_multiplier: float = 1.0) -> void:
 	current_health -= damage
 
 	if current_health <= 0:

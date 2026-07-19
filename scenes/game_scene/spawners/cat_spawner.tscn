@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://yuo1ue633glp"]
+
+[ext_resource type="Script" uid="uid://dmn4a1v0agrti" path="res://scripts/spawner.gd" id="1_lnklf"]
+[ext_resource type="PackedScene" uid="uid://uodowlxv7c2b" path="res://scenes/game_scene/characters/ai_cat.tscn" id="2_wxg52"]
+
+[node name="CatSpawner" type="Node2D" unique_id=1799724081]
+script = ExtResource("1_lnklf")
+character_scene = ExtResource("2_wxg52")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1312219362]
+gizmo_extents = 20.0

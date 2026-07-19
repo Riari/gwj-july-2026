@@ -23,13 +23,13 @@ func on_components_initialised(components: Array[Component]) -> void:
 		if component is AnimationComponent:
 			_animation = component
 
-func on_character_hurt(instigator: Character, _damage: int) -> void:
+func on_character_hurt(instigator: Character, _damage: int, knockback_multiplier: float = 1.0) -> void:
 	var direction := (global_position - instigator.global_position).normalized()
 	var knockback := Vector2.ZERO
 	if direction != Vector2.ZERO:
 		if is_zero_approx(direction.x):
 			direction.x = [-2.0, 2.0].pick_random()
-		knockback = Vector2(direction.x * knockback_vector.x, -knockback_vector.y)
+		knockback = Vector2(direction.x * knockback_vector.x, -knockback_vector.y) * knockback_multiplier
 
 	_movement_disabled = true
 	_character.velocity += knockback
@@ -56,6 +56,12 @@ func move(direction: float) -> void:
 
 func get_last_move_x_direction() -> float:
 	return _last_move_x_direction
+
+func stop() -> void:
+	_character.velocity.x = 0.0
+
+func get_max_jump_height() -> float:
+	return (jump_speed * jump_speed) / (2.0 * _character.get_gravity().y)
 
 func jump() -> void:
 	if _movement_disabled: return

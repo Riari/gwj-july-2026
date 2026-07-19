@@ -25,7 +25,7 @@ func on_components_initialised(_components: Array[Component]) -> void:
 		if component is MovementComponent:
 			_movement = component
 
-func on_character_hurt(_instigator: Character, _damage: int) -> void:
+func on_character_hurt(_instigator: Character, _damage: int, _knockback_multiplier: float = 1.0) -> void:
 	play_anim(ANIM_FALL)
 	_anim_locked = true
 

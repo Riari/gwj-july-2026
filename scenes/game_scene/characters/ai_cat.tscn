@@ -2,24 +2,76 @@
 
 [ext_resource type="PackedScene" uid="uid://iwhiqytys7vs" path="res://scenes/game_scene/characters/character_base.tscn" id="1_nuoek"]
 [ext_resource type="Script" uid="uid://bbehrvn5uemcq" path="res://scripts/components/ai_component.gd" id="2_a445g"]
+[ext_resource type="Shader" uid="uid://co45xskun2d51" path="res://resources/shaders/invert.gdshader" id="2_k7nt5"]
 [ext_resource type="Script" uid="uid://debjs7k8d2g1a" path="res://scripts/components/movement_component.gd" id="3_j56yv"]
 [ext_resource type="Script" uid="uid://cgiyi02a0ca78" path="res://scripts/components/score_component.gd" id="4_hcayd"]
 [ext_resource type="Script" uid="uid://bxmo77pxtrb2v" path="res://scripts/components/attack_component.gd" id="5_q1f02"]
+[ext_resource type="SpriteFrames" uid="uid://bbkpsvbt3mn06" path="res://resources/sprite_frames/sprite_frames_attack_1.tres" id="6_q1f02"]
+[ext_resource type="Script" uid="uid://bfcxhmscd2je0" path="res://scripts/components/animation_component.gd" id="7_5xxj2"]
+[ext_resource type="Script" uid="uid://c6d8apfia6nyi" path="res://scripts/components/health_component.gd" id="8_6rhne"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dtqbr"]
+resource_local_to_scene = true
+shader = ExtResource("2_k7nt5")
+shader_parameter/flash_active = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xxj2"]
+size = Vector2(17, 22)
 
 [node name="AICat" unique_id=109084431 instance=ExtResource("1_nuoek")]
+collision_layer = 8
+collision_mask = 3
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1190068141]
+material = SubResource("ShaderMaterial_dtqbr")
 
 [node name="AIComponent" type="Node2D" parent="." index="2" unique_id=1828108523]
 script = ExtResource("2_a445g")
+wander_interval = Array[float]([0.5, 2.0])
+idle_interval = Array[float]([0.2, 0.8])
 metadata/_custom_type_script = "uid://bbehrvn5uemcq"
 
 [node name="MovementComponent" type="Node2D" parent="." index="3" unique_id=213340713]
 script = ExtResource("3_j56yv")
+move_speed = 100.0
+max_speed = 300.0
 metadata/_custom_type_script = "uid://debjs7k8d2g1a"
 
 [node name="ScoreComponent" type="Node2D" parent="." index="4" unique_id=851555791]
 script = ExtResource("4_hcayd")
+points = 1000
 metadata/_custom_type_script = "uid://cgiyi02a0ca78"
 
 [node name="AttackComponent" type="Node2D" parent="." index="5" unique_id=1509127214]
 script = ExtResource("5_q1f02")
+knockback_multiplier = 0.5
+cooldown = 1.5
 metadata/_custom_type_script = "uid://bxmo77pxtrb2v"
+
+[node name="AttackArea" type="Area2D" parent="AttackComponent" index="0" unique_id=2112141889]
+unique_name_in_owner = true
+position = Vector2(16, 19)
+collision_layer = 8
+collision_mask = 4
+
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackComponent/AttackArea" index="0" unique_id=426101775]
+unique_name_in_owner = true
+position = Vector2(-2.5, 2)
+shape = SubResource("RectangleShape2D_5xxj2")
+
+[node name="AttackSprite" type="AnimatedSprite2D" parent="AttackComponent/AttackArea" index="1" unique_id=86319976]
+unique_name_in_owner = true
+position = Vector2(-3, 2)
+sprite_frames = ExtResource("6_q1f02")
+frame = 6
+frame_progress = 1.0
+
+[node name="AnimationComponent" type="Node2D" parent="." index="6" unique_id=256772633]
+script = ExtResource("7_5xxj2")
+metadata/_custom_type_script = "uid://bfcxhmscd2je0"
+
+[node name="HealthComponent" type="Node2D" parent="." index="7" unique_id=1323602173 node_paths=PackedStringArray("hurt_sprite")]
+script = ExtResource("8_6rhne")
+max_health = 2
+hurt_sprite = NodePath("../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://c6d8apfia6nyi"

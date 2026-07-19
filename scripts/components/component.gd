@@ -19,7 +19,7 @@ func enable() -> void:
 func disable() -> void:
 	_is_enabled = false
 
-func on_character_hurt(_instigator: Character, _damage: int) -> void:
+func on_character_hurt(_instigator: Character, _damage: int, _knockback_multipler: float = 1.0) -> void:
 	return
 
 func on_character_hurt_cooldown_end() -> void:

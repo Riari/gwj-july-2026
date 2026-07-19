@@ -27,15 +27,17 @@
 [ext_resource type="AudioStream" uid="uid://dgp3q1vdediir" path="res://assets/audio/sfx/score-4.ogg" id="24_lnb0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnb0k"]
-size = Vector2(22, 22)
+size = Vector2(26, 32)
 
-[node name="PlayerCharacter" unique_id=109084431 instance=ExtResource("1_pihnd")]
+[node name="PlayerCharacter" unique_id=109084431 groups=["player"] instance=ExtResource("1_pihnd")]
 collision_layer = 4
+collision_mask = 51
 floating_text_scene = ExtResource("2_hllgo")
 
 [node name="HealthComponent" type="Node2D" parent="." index="0" unique_id=36887452 node_paths=PackedStringArray("hurt_sprite")]
 unique_name_in_owner = true
 script = ExtResource("2_ysfk6")
+max_health = 5
 hurt_sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://c6d8apfia6nyi"
 
@@ -90,11 +92,12 @@ metadata/_custom_type_script = "uid://bxmo77pxtrb2v"
 [node name="AttackArea" type="Area2D" parent="AttackComponent" index="0" unique_id=1339529626]
 unique_name_in_owner = true
 position = Vector2(16, 19)
-collision_mask = 8
+collision_layer = 4
+collision_mask = 40
 
 [node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackComponent/AttackArea" index="0" unique_id=871882159]
 unique_name_in_owner = true
-position = Vector2(0, 2)
+position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_lnb0k")
 
 [node name="AttackSprite" type="AnimatedSprite2D" parent="AttackComponent/AttackArea" index="1" unique_id=2033158475]

@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://co45xskun2d51" path="res://resources/shaders/invert.gdshader" id="2_qm5ft"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rpncm"]
+resource_local_to_scene = true
 shader = ExtResource("2_qm5ft")
 shader_parameter/flash_active = false
 

@@ -50,7 +50,7 @@ func _apply_selected_cat_skin() -> void:
 	var cat_sprite := GameState.get_selected_cat()
 	_animation.set_sprite_frames(cat_sprite)
 
-func on_character_hurt(_instigator: Character, _damage: int) -> void:
+func on_character_hurt(_instigator: Character, _damage: int, _knockback_multiplier: float = 1.0) -> void:
 	_input_disabled = true
 	hurt_audio.play()
 
@@ -85,11 +85,13 @@ func _physics_process(_delta: float) -> void:
 	
 	if !_input_disabled:
 		if _character.is_on_floor():
-			if Input.is_action_pressed("move_down") and is_zero_approx(_character.velocity.x):
+			if Input.is_action_just_pressed("unloaf"):
+				_animation.play_idle_anim(AnimationComponent.ANIM_IDLE)
+			elif Input.is_action_pressed("loaf") and is_zero_approx(_character.velocity.x):
 				_animation.play_idle_anim(AnimationComponent.ANIM_LOAF)
 		
 			if Input.is_action_just_pressed("jump"):
-				if Input.is_action_pressed("move_down"):
+				if Input.is_action_pressed("loaf"):
 					_movement.drop()
 				else:
 					_movement.jump()
