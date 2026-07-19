@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 [autoload]
 
 ProjectMusicController="*uid://r5t485lr3p7t"
+SceneLoader="*uid://cbwmrnp0af35y"
 
 [display]
 
