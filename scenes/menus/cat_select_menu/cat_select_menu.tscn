@@ -98,7 +98,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_font")
-text = "Suzy"
+text = "Fuzz"
 horizontal_alignment = 1
 uppercase = true
 
@@ -135,7 +135,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_font")
-text = "Bob"
+text = "Billy"
 horizontal_alignment = 1
 uppercase = true
 
@@ -172,7 +172,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_font")
-text = "Nat"
+text = "Iris"
 horizontal_alignment = 1
 uppercase = true
 
