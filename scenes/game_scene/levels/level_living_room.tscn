@@ -111,7 +111,7 @@ position = Vector2(2022, 115)
 [node name="Yarn" parent="." index="20" unique_id=2094024293 instance=ExtResource("16_liwvl")]
 position = Vector2(500, 122)
 
-[node name="RemoteControl2" parent="." index="21" unique_id=434547946 instance=ExtResource("17_ncras")]
+[node name="RemoteControl2" parent="." index="21" unique_id=1610311524 instance=ExtResource("17_ncras")]
 position = Vector2(625, 141)
 
 [node name="WaterGlass" parent="." index="22" unique_id=300243418 instance=ExtResource("18_617v8")]
