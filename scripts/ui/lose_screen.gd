@@ -8,11 +8,12 @@ extends Node
 func _ready() -> void:
 	var player_cat := GameState.get_selected_cat()
 	anim_sprite.sprite_frames = SpriteUtils.sprite_frames[player_cat]
+	anim_sprite.play()
 	main_menu_button.pressed.connect(_on_main_menu_button_pressed)
 	retry_button.pressed.connect(_on_retry_button_pressed)
 
 func _on_main_menu_button_pressed() -> void:
-	scene_loader_node.load_scene("res://scenes/game_scene/main_menu.tscn")
+	scene_loader_node.load_scene("res://scenes/menus/main_menu/main_menu_with_animations.tscn")
 
 func _on_retry_button_pressed() -> void:
 	var level_index := GameState.get_last_level_index()
