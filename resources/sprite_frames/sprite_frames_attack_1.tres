@@ -2,10 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://c8y88dbxx4a1m" path="res://assets/textures/sprites/attacks/Smear 01 Vertical 01.png" id="1_hp8ku"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_odr3l"]
-atlas = ExtResource("1_hp8ku")
-region = Rect2(240, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktq8n"]
 atlas = ExtResource("1_hp8ku")
 region = Rect2(0, 0, 48, 48)
@@ -26,12 +22,13 @@ region = Rect2(144, 0, 48, 48)
 atlas = ExtResource("1_hp8ku")
 region = Rect2(192, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_odr3l"]
+atlas = ExtResource("1_hp8ku")
+region = Rect2(240, 0, 48, 48)
+
 [resource]
 animations = [{
 "frames": [{
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_odr3l")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ktq8n")
 }, {
@@ -52,5 +49,5 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 18.0
+"speed": 24.0
 }]

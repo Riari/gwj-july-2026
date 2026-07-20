@@ -29,7 +29,7 @@ func attack() -> bool:
 	if _cooldown_timer > 0.0:
 		return false
 
-	_animation.play_anim(AnimationComponent.ANIM_ATTACK)
+	_animation.play_anim(AnimationComponent.ANIM_ATTACK, true)
 	sprite.play()
 	_cooldown_timer = cooldown
 	

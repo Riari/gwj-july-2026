@@ -72,7 +72,7 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("meow"):
 			meow()
 		
-		if Input.is_action_just_pressed("attack"):
+		if Input.is_action_pressed("attack"):
 			if _attack.attack():
 				attack_audio.stream = attack_sounds.pick_random()
 				attack_audio.play()
@@ -90,7 +90,7 @@ func _physics_process(_delta: float) -> void:
 			elif Input.is_action_pressed("loaf") and is_zero_approx(_character.velocity.x):
 				_animation.play_idle_anim(AnimationComponent.ANIM_LOAF)
 		
-			if Input.is_action_just_pressed("jump"):
+			if Input.is_action_pressed("jump"):
 				if Input.is_action_pressed("loaf"):
 					_movement.drop()
 				else:

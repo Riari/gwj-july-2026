@@ -25,9 +25,15 @@
 [ext_resource type="Script" uid="uid://bxmo77pxtrb2v" path="res://scripts/components/attack_component.gd" id="18_ajtht"]
 [ext_resource type="SpriteFrames" uid="uid://bbkpsvbt3mn06" path="res://resources/sprite_frames/sprite_frames_attack_1.tres" id="23_amlbl"]
 [ext_resource type="AudioStream" uid="uid://dgp3q1vdediir" path="res://assets/audio/sfx/score-4.ogg" id="24_lnb0k"]
+[ext_resource type="Shader" uid="uid://co45xskun2d51" path="res://resources/shaders/invert.gdshader" id="24_v12bb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnb0k"]
 size = Vector2(26, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf6pr"]
+resource_local_to_scene = true
+shader = ExtResource("24_v12bb")
+shader_parameter/flash_active = false
 
 [node name="PlayerCharacter" unique_id=109084431 groups=["player"] instance=ExtResource("1_pihnd")]
 collision_layer = 4
@@ -87,6 +93,7 @@ metadata/_custom_type_script = "uid://bfcxhmscd2je0"
 
 [node name="AttackComponent" type="Node2D" parent="." index="4" unique_id=406057942]
 script = ExtResource("18_ajtht")
+cooldown = 0.33
 metadata/_custom_type_script = "uid://bxmo77pxtrb2v"
 
 [node name="AttackArea" type="Area2D" parent="AttackComponent" index="0" unique_id=1339529626]
@@ -108,6 +115,7 @@ frame = 6
 frame_progress = 1.0
 
 [node name="AnimatedSprite2D" parent="." index="5" unique_id=1190068141]
+material = SubResource("ShaderMaterial_qf6pr")
 sprite_frames = ExtResource("2_v1525")
 
 [node name="ScoreAudio" type="AudioStreamPlayer" parent="." index="7" unique_id=140097154]

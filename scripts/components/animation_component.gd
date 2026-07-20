@@ -44,8 +44,10 @@ func play_idle_anim(anim: String = "") -> void:
 		_idle_anim = anim
 	anim_sprite.play(_idle_anim)
 
-func play_anim(anim: String) -> void:
+func play_anim(anim: String, reset: bool = false) -> void:
 	if _anim_locked: return
+	if reset:
+		anim_sprite.set_frame_and_progress(0, 0.0)
 	anim_sprite.play(anim)
 	_idle_anim = ANIM_IDLE
 
