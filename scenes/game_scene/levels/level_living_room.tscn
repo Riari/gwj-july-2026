@@ -33,6 +33,9 @@ shader = ExtResource("2_iwg84")
 shader_parameter/mix_color = Color(0.9667327, 3.1188727e-05, 0.6806556, 1)
 
 [node name="LivingRoom" unique_id=1122156498 instance=ExtResource("1_idox7")]
+gold_time = 60.0
+silver_time = 90.0
+bronze_time = 120.0
 
 [node name="WallpaperTileLayer" parent="." index="0" unique_id=2100211107]
 material = SubResource("ShaderMaterial_iwg84")
