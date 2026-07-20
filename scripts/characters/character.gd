@@ -51,7 +51,7 @@ func get_component(type: Variant) -> Component:
 	return null
 
 func on_hit(instigator: Character, damage: int, knockback_multipler: float = 1.0) -> void:
-	if _hurt_cooldown_timer > 0.0:
+	if _is_dead or _hurt_cooldown_timer > 0.0:
 		return
 
 	for component in _components:
